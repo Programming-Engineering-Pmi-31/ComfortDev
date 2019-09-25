@@ -1,13 +1,30 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.Extensions.Configuration;
 
 namespace TestConsoleApp
 {
     public partial class ComfortDevTestContext : DbContext
     {
+        private static IConfigurationRoot Configuration;
         public ComfortDevTestContext()
         {
+            string env = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
+            if (string.IsNullOrWhiteSpace(env))
+            {
+                env = "Development";
+            }
+
+            var builder = new ConfigurationBuilder();
+
+            if (env == "Development")
+            {
+                builder.AddUserSecrets<Program>();
+            }
+
+            Configuration = builder.Build();
         }
 
         public ComfortDevTestContext(DbContextOptions<ComfortDevTestContext> options)
@@ -27,8 +44,7 @@ namespace TestConsoleApp
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseNpgsql("Host=localhost;Port=5432;Database=ComfortDevTest;Username=postgres;Password=1058");
+                optionsBuilder.UseNpgsql(Configuration["ConnectionString"]);
             }
         }
 
