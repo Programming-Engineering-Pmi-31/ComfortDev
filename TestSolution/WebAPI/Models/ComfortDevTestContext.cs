@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.Extensions.Configuration;
 
-namespace TestConsoleApp
+namespace WebAPI
 {
     public partial class ComfortDevTestContext : DbContext
     {

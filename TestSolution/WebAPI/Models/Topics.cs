@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace TestConsoleApp
+namespace WebAPI
 {
     public partial class Topics
     {
