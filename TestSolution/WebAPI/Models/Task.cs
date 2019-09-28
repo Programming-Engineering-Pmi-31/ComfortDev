@@ -3,11 +3,11 @@ using System.Collections.Generic;
 
 namespace WebAPI
 {
-    public partial class Tasks
+    public partial class Task
     {
-        public Tasks()
+        public Task()
         {
-            CourseTasks = new HashSet<CourseTasks>();
+            CourseTask = new HashSet<CourseTask>();
         }
 
         public int Id { get; set; }
@@ -15,7 +15,7 @@ namespace WebAPI
         public int TopicId { get; set; }
         public string EvalCrit { get; set; }
 
-        public virtual Topics Topic { get; set; }
-        public virtual ICollection<CourseTasks> CourseTasks { get; set; }
+        public virtual Topic Topic { get; set; }
+        public virtual ICollection<CourseTask> CourseTask { get; set; }
     }
 }

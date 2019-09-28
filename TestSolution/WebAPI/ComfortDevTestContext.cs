@@ -32,13 +32,13 @@ namespace WebAPI
         {
         }
 
-        public virtual DbSet<CourseTasks> CourseTasks { get; set; }
-        public virtual DbSet<Tasks> Tasks { get; set; }
-        public virtual DbSet<TestAnswers> TestAnswers { get; set; }
-        public virtual DbSet<TestQuestions> TestQuestions { get; set; }
-        public virtual DbSet<Topics> Topics { get; set; }
-        public virtual DbSet<UserCourses> UserCourses { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<CourseTask> CourseTask { get; set; }
+        public virtual DbSet<Task> Task { get; set; }
+        public virtual DbSet<TestAnswer> TestAnswer { get; set; }
+        public virtual DbSet<TestQuestion> TestQuestion { get; set; }
+        public virtual DbSet<Topic> Topic { get; set; }
+        public virtual DbSet<User> User { get; set; }
+        public virtual DbSet<UserCourse> UserCourse { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -50,9 +50,9 @@ namespace WebAPI
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<CourseTasks>(entity =>
+            modelBuilder.Entity<CourseTask>(entity =>
             {
-                entity.ToTable("course_tasks");
+                entity.ToTable("course_task");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
@@ -63,21 +63,21 @@ namespace WebAPI
                 entity.Property(e => e.TaskId).HasColumnName("taskId");
 
                 entity.HasOne(d => d.Course)
-                    .WithMany(p => p.CourseTasks)
+                    .WithMany(p => p.CourseTask)
                     .HasForeignKey(d => d.CourseId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("course_tasks_courseId_fkey");
+                    .HasConstraintName("course_task_courseId_fkey");
 
                 entity.HasOne(d => d.Task)
-                    .WithMany(p => p.CourseTasks)
+                    .WithMany(p => p.CourseTask)
                     .HasForeignKey(d => d.TaskId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("course_tasks_taskId_fkey");
+                    .HasConstraintName("course_task_taskId_fkey");
             });
 
-            modelBuilder.Entity<Tasks>(entity =>
+            modelBuilder.Entity<Task>(entity =>
             {
-                entity.ToTable("tasks");
+                entity.ToTable("task");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
@@ -92,15 +92,15 @@ namespace WebAPI
                 entity.Property(e => e.TopicId).HasColumnName("topicId");
 
                 entity.HasOne(d => d.Topic)
-                    .WithMany(p => p.Tasks)
+                    .WithMany(p => p.Task)
                     .HasForeignKey(d => d.TopicId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("tasks_topicId_fkey");
+                    .HasConstraintName("task_topicId_fkey");
             });
 
-            modelBuilder.Entity<TestAnswers>(entity =>
+            modelBuilder.Entity<TestAnswer>(entity =>
             {
-                entity.ToTable("test_answers");
+                entity.ToTable("test_answer");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
@@ -113,20 +113,20 @@ namespace WebAPI
                 entity.Property(e => e.TopicId).HasColumnName("topicId");
 
                 entity.HasOne(d => d.Question)
-                    .WithMany(p => p.TestAnswers)
+                    .WithMany(p => p.TestAnswer)
                     .HasForeignKey(d => d.QuestionId)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("test_answers_questionId_fkey");
+                    .HasConstraintName("test_answer_questionId_fkey");
 
                 entity.HasOne(d => d.Topic)
-                    .WithMany(p => p.TestAnswers)
+                    .WithMany(p => p.TestAnswer)
                     .HasForeignKey(d => d.TopicId)
-                    .HasConstraintName("test_answers_topicId_fkey");
+                    .HasConstraintName("test_answer_topicId_fkey");
             });
 
-            modelBuilder.Entity<TestQuestions>(entity =>
+            modelBuilder.Entity<TestQuestion>(entity =>
             {
-                entity.ToTable("test_questions");
+                entity.ToTable("test_question");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
@@ -135,12 +135,12 @@ namespace WebAPI
                     .HasColumnName("question");
             });
 
-            modelBuilder.Entity<Topics>(entity =>
+            modelBuilder.Entity<Topic>(entity =>
             {
-                entity.ToTable("topics");
+                entity.ToTable("topic");
 
                 entity.HasIndex(e => e.Title)
-                    .HasName("topics_title_key")
+                    .HasName("topic_title_key")
                     .IsUnique();
 
                 entity.Property(e => e.Id).HasColumnName("id");
@@ -155,9 +155,26 @@ namespace WebAPI
                     .HasColumnType("character varying");
             });
 
-            modelBuilder.Entity<UserCourses>(entity =>
+            modelBuilder.Entity<User>(entity =>
             {
-                entity.ToTable("user_courses");
+                entity.HasKey(e => e.Name)
+                    .HasName("user_pkey");
+
+                entity.ToTable("user");
+
+                entity.Property(e => e.Name)
+                    .HasColumnName("name")
+                    .HasColumnType("character varying");
+
+                entity.Property(e => e.Hash)
+                    .IsRequired()
+                    .HasColumnName("hash")
+                    .HasColumnType("character varying");
+            });
+
+            modelBuilder.Entity<UserCourse>(entity =>
+            {
+                entity.ToTable("user_course");
 
                 entity.Property(e => e.Id).HasColumnName("id");
 
@@ -169,27 +186,10 @@ namespace WebAPI
                     .HasColumnType("character varying");
 
                 entity.HasOne(d => d.UserNameNavigation)
-                    .WithMany(p => p.UserCourses)
+                    .WithMany(p => p.UserCourse)
                     .HasForeignKey(d => d.UserName)
                     .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("user_courses_userName_fkey");
-            });
-
-            modelBuilder.Entity<Users>(entity =>
-            {
-                entity.HasKey(e => e.Name)
-                    .HasName("users_pkey");
-
-                entity.ToTable("users");
-
-                entity.Property(e => e.Name)
-                    .HasColumnName("name")
-                    .HasColumnType("character varying");
-
-                entity.Property(e => e.Hash)
-                    .IsRequired()
-                    .HasColumnName("hash")
-                    .HasColumnType("character varying");
+                    .HasConstraintName("user_course_userName_fkey");
             });
 
             OnModelCreatingPartial(modelBuilder);

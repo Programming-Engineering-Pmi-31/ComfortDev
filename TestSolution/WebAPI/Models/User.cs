@@ -3,16 +3,16 @@ using System.Collections.Generic;
 
 namespace WebAPI
 {
-    public partial class Users
+    public partial class User
     {
-        public Users()
+        public User()
         {
-            UserCourses = new HashSet<UserCourses>();
+            UserCourse = new HashSet<UserCourse>();
         }
 
         public string Name { get; set; }
         public string Hash { get; set; }
 
-        public virtual ICollection<UserCourses> UserCourses { get; set; }
+        public virtual ICollection<UserCourse> UserCourse { get; set; }
     }
 }

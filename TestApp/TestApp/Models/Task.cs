@@ -14,6 +14,7 @@ namespace TestApp
         public string Title { get; set; }
         public int TopicId { get; set; }
         public string EvalCrit { get; set; }
+        public string TaskText { get; set; }
 
         public virtual Topic Topic { get; set; }
         public virtual ICollection<CourseTask> CourseTask { get; set; }

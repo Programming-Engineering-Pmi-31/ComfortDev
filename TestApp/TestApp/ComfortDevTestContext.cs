@@ -32,13 +32,13 @@ namespace TestApp
         {
         }
 
-        public virtual DbSet<CourseTask> CourseTask { get; set; }
-        public virtual DbSet<Task> Task { get; set; }
-        public virtual DbSet<TestAnswer> TestAnswer { get; set; }
-        public virtual DbSet<TestQuestion> TestQuestion { get; set; }
-        public virtual DbSet<Topic> Topic { get; set; }
-        public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<UserCourse> UserCourse { get; set; }
+        public virtual DbSet<CourseTask> CourseTasks { get; set; }
+        public virtual DbSet<Task> Tasks { get; set; }
+        public virtual DbSet<TestAnswer> TestAnswers { get; set; }
+        public virtual DbSet<TestQuestion> TestQuestions { get; set; }
+        public virtual DbSet<Topic> Topics { get; set; }
+        public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<UserCourse> UserCourses { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -84,6 +84,10 @@ namespace TestApp
                 entity.Property(e => e.EvalCrit)
                     .IsRequired()
                     .HasColumnName("evalCrit");
+
+                entity.Property(e => e.TaskText)
+                    .IsRequired()
+                    .HasColumnName("taskText");
 
                 entity.Property(e => e.Title)
                     .HasColumnName("title")

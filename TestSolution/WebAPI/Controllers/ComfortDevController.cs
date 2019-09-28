@@ -15,15 +15,15 @@ namespace WebAPI.Controllers
         ComfortDevTestContext db = new ComfortDevTestContext();
 
         [HttpGet("Topics")]
-        public IEnumerable<Topics> GetTopics()
+        public IEnumerable<Topic> GetTopics()
         {
-            return db.Topics;
+            return db.Topic;
         }
 
         [HttpGet("Topics/{id}")]
-        public IEnumerable<Topics> GetTopic(int id)
+        public IEnumerable<Topic> GetTopic(int id)
         {
-            return db.Topics.Where(elem => elem.Id == id);
+            return db.Topic.Where(elem => elem.Id == id);
         }
     }
 }
