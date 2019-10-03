@@ -1,6 +1,6 @@
 using System;
 
-namespace ComfortDev.Web
+namespace ComfortDev.API
 {
     public class WeatherForecast
     {

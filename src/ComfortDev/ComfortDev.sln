@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComfortDev.DAL", "ComfortDe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComfortDev.BLL", "ComfortDev.BLL\ComfortDev.BLL.csproj", "{60F519CA-6919-4777-AD1E-8FE905C2BAFB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComfortDev.Web", "ComfortDev.Web\ComfortDev.Web.csproj", "{B7F13453-456F-428A-8B5F-E21ED0BDD44B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComfortDev.API", "ComfortDev.API\ComfortDev.API.csproj", "{13CA1383-0F07-4D59-925A-8B5C2E2693AF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{60F519CA-6919-4777-AD1E-8FE905C2BAFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60F519CA-6919-4777-AD1E-8FE905C2BAFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60F519CA-6919-4777-AD1E-8FE905C2BAFB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B7F13453-456F-428A-8B5F-E21ED0BDD44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B7F13453-456F-428A-8B5F-E21ED0BDD44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B7F13453-456F-428A-8B5F-E21ED0BDD44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B7F13453-456F-428A-8B5F-E21ED0BDD44B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{13CA1383-0F07-4D59-925A-8B5C2E2693AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{13CA1383-0F07-4D59-925A-8B5C2E2693AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{13CA1383-0F07-4D59-925A-8B5C2E2693AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{13CA1383-0F07-4D59-925A-8B5C2E2693AF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
