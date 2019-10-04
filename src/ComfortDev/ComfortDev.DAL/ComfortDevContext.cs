@@ -2,13 +2,21 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
 using ComfortDev.DAL.Entities;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace ComfortDev.DAL
 {
     public partial class ComfortDevContext : DbContext
     {
+        private readonly string connectionString;
         public ComfortDevContext()
         {
+            var builder = new ConfigurationBuilder();
+            builder.SetBasePath(Directory.GetCurrentDirectory());
+            builder.AddJsonFile("secret.json");
+            var config = builder.Build();
+            connectionString = config.GetConnectionString("DefaultConnection");
         }
 
         public ComfortDevContext(DbContextOptions<ComfortDevContext> options)
@@ -28,10 +36,9 @@ namespace ComfortDev.DAL
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder
                     .UseLazyLoadingProxies()
-                    .UseNpgsql("Host=localhost;Port=5432;Database=ComfortDev;Username=postgres;Password=1058");
+                    .UseNpgsql(connectionString);
             }
         }
 
