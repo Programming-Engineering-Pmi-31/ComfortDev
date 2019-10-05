@@ -38,8 +38,8 @@ namespace ComfortDev.API.Controllers
                 return BadRequest(new { message = "Username or password is incorrect" });
 
             var tokenHandler = new JwtSecurityTokenHandler();
-            string key = Secrets.MD5Key;
-            byte[] keyByte = Encoding.UTF8.GetBytes(key);
+            string key = Secrets.JwtKey;
+            byte[] keyByte = HashConverter.PlainTextToBytes(key);
 
             var tokenDescriptor = new SecurityTokenDescriptor
             {
@@ -76,6 +76,13 @@ namespace ComfortDev.API.Controllers
                 // return error message if there was an exception
                 return BadRequest(new { message = ex.Message });
             }
+        }
+
+        [HttpGet("courses")]
+        public IActionResult GetCourses()
+        {
+            var courses = userService.GetById(int.Parse(User.Identity.Name)).UserCourses;
+            return Ok(courses);
         }
     }
 }
