@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using ComfortDev.BLL.Services;
 using System.IdentityModel.Tokens.Jwt;
-using Microsoft.Extensions.Configuration;
 using System.IO;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
@@ -35,7 +34,9 @@ namespace ComfortDev.API.Controllers
         {
             var user = userService.Authenticate(username, password);
             if (user == null)
+            {
                 return BadRequest(new { message = "Username or password is incorrect" });
+            }
 
             var tokenHandler = new JwtSecurityTokenHandler();
             string key = Secrets.JwtKey;
@@ -67,13 +68,11 @@ namespace ComfortDev.API.Controllers
         {
             try
             {
-                // save 
                 userService.Create(new User { Name = username }, password);
                 return Ok();
             }
             catch (Exception ex)
             {
-                // return error message if there was an exception
                 return BadRequest(new { message = ex.Message });
             }
         }

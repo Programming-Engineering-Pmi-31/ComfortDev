@@ -50,7 +50,7 @@ namespace ComfortDev.BLL.Services
             }
             if (database.Users.Find(u => u.Name == user.Name).Count() > 0)
             {
-                throw new Exception("Username \"" + user.Name + "\" is already taken");
+                throw new Exception("Username " + user.Name + " is already taken");
             }
 
             byte[] hash = CreateHash(password);
