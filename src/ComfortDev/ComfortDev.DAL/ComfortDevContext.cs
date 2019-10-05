@@ -4,19 +4,14 @@ using Microsoft.EntityFrameworkCore.Metadata;
 using ComfortDev.DAL.Entities;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using ComfortDev.Common;
 
 namespace ComfortDev.DAL
 {
     public partial class ComfortDevContext : DbContext
     {
-        private readonly string connectionString;
         public ComfortDevContext()
         {
-            var builder = new ConfigurationBuilder();
-            builder.SetBasePath(Directory.GetCurrentDirectory());
-            builder.AddJsonFile("secret.json");
-            var config = builder.Build();
-            connectionString = config.GetConnectionString("DefaultConnection");
         }
 
         public ComfortDevContext(DbContextOptions<ComfortDevContext> options)
@@ -38,7 +33,7 @@ namespace ComfortDev.DAL
             {
                 optionsBuilder
                     .UseLazyLoadingProxies()
-                    .UseNpgsql(connectionString);
+                    .UseNpgsql(Secrets.ConnectionString);
             }
         }
 

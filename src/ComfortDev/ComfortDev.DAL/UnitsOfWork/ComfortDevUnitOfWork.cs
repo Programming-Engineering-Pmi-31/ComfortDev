@@ -7,7 +7,7 @@ using ComfortDev.DAL.Repositories;
 
 namespace ComfortDev.DAL.UnitsOfWork
 {
-    class ComfortDevUnitOfWork : IUnitOfWork
+    public class ComfortDevUnitOfWork : IUnitOfWork
     {
         private readonly ComfortDevContext db;
         private bool disposed = false;
