@@ -15,7 +15,7 @@
                <ImageBrush ImageSource="D:\work\3 University\3\PM, Software engineering\WPF\Design\Ready\Register-Window-Background-3.jpg" />
             </Rectangle.Fill> -->
         </Rectangle>
-        <Rectangle Width="280" Height="240" Fill="White" Margin="77,165.5,75,163.5">
+        <Rectangle Width="280" Height="240" Fill="White" Margin="76,164">
             <Rectangle.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Rectangle.Effect>
@@ -41,13 +41,14 @@
                 <DropShadowEffect Color="#FFEEEEEE"/>
             </TextBox.Effect>
         </TextBox>
-        <TextBox x:Name="textBox1_Copy" HorizontalAlignment="Left" Height="23" Margin="92,334,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Background="#FFE8E8E8">
+        <TextBox x:Name="textBox1_Copy" HorizontalAlignment="Left" Height="23" Margin="92,355,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Background="#FFE8E8E8">
             <TextBox.Effect>
                 <DropShadowEffect Color="#FFEEEEEE"/>
             </TextBox.Effect>
         </TextBox>
         <TextBlock x:Name="textBlock1_Copy" HorizontalAlignment="Left" Margin="96,287,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="16" FontFamily="AdonisC"/>
         <TextBlock x:Name="textBlock1_Copy1" HorizontalAlignment="Left" Margin="172,185,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontSize="16" FontFamily="AdonisC"><Run Text="Registration"/><LineBreak/><Run/></TextBlock>
+        <TextBlock x:Name="textBlock1_Copy2" HorizontalAlignment="Left" Margin="96,334,0,0" TextWrapping="Wrap" Text="re-enter" VerticalAlignment="Top" FontSize="16" FontFamily="AdonisC"/>
 
     </Grid>
 </Window>
