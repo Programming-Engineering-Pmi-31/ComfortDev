@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29326.143
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComfortDevClient", "ComfortDevClient\ComfortDevClient.csproj", "{A1E255C0-BA6C-4BC7-A279-5160C99A8912}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{580E6EA7-2292-41C2-B024-9B38D7566D69}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A1E255C0-BA6C-4BC7-A279-5160C99A8912}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A1E255C0-BA6C-4BC7-A279-5160C99A8912}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A1E255C0-BA6C-4BC7-A279-5160C99A8912}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A1E255C0-BA6C-4BC7-A279-5160C99A8912}.Release|Any CPU.Build.0 = Release|Any CPU
+		{580E6EA7-2292-41C2-B024-9B38D7566D69}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{580E6EA7-2292-41C2-B024-9B38D7566D69}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{580E6EA7-2292-41C2-B024-9B38D7566D69}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{580E6EA7-2292-41C2-B024-9B38D7566D69}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2121F1CF-287A-40DC-8A25-22AAE49A8E81}
+	EndGlobalSection
+EndGlobal
