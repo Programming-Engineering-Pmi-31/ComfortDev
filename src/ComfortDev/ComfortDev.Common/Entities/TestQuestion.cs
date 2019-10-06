@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ComfortDev.DAL.Entities
+namespace ComfortDev.Common.Entities
 {
     public partial class TestQuestion
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using ComfortDev.DAL.Entities;
+using ComfortDev.Common.Entities;
 
 namespace ComfortDev.DAL.Interfaces
 {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using ComfortDev.DAL.Interfaces;
-using ComfortDev.DAL.Entities;
+using ComfortDev.Common.Entities;
 using ComfortDev.DAL.Repositories;
 
 namespace ComfortDev.DAL.UnitsOfWork

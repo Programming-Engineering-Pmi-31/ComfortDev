@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using ComfortDev.BLL.Interfaces;
-using ComfortDev.DAL.Entities;
+using ComfortDev.Common.Entities;
 using ComfortDev.DAL.UnitsOfWork;
 using System.Linq;
 using Microsoft.Extensions.Configuration;

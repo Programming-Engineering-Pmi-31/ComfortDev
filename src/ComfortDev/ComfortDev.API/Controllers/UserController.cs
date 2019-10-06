@@ -11,7 +11,7 @@ using System.IO;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
-using ComfortDev.DAL.Entities;
+using ComfortDev.Common.Entities;
 using ComfortDev.Common;
 
 namespace ComfortDev.API.Controllers

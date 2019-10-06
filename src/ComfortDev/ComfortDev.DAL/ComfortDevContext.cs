@@ -1,9 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using ComfortDev.DAL.Entities;
 using Microsoft.Extensions.Configuration;
 using System.IO;
+using ComfortDev.Common.Entities;
 using ComfortDev.Common;
 
 namespace ComfortDev.DAL
