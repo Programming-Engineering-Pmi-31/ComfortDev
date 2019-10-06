@@ -128,5 +128,15 @@ namespace ComfortDev.BLL.Services
             }
             return true;
         }
+
+        public void Delete(int id)
+        {
+            var user = database.Users.Get(id);
+            if (user != null)
+            {
+                database.Users.Delete(id);
+                database.Save();
+            }
+        }
     }
 }

@@ -12,6 +12,6 @@ namespace ComfortDev.BLL.Interfaces
         User GetById(int id);
         User Create(User user, string password);
         // void Update(User user, string password = null);
-        // void Delete(int id);
+        void Delete(int id);
     }
 }

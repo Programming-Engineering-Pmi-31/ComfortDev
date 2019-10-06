@@ -83,5 +83,13 @@ namespace ComfortDev.API.Controllers
             var courses = userService.GetById(int.Parse(User.Identity.Name)).UserCourses;
             return Ok(courses);
         }
+
+        [HttpDelete()]
+        public IActionResult Delete()
+        {
+            int id = int.Parse(User.Identity.Name);
+            userService.Delete(id);
+            return Ok();
+        }
     }
 }
