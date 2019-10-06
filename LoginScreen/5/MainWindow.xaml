@@ -7,7 +7,10 @@
         mc:Ignorable="d"
         Title="Login\Register" Height="600" Width="440" ResizeMode="NoResize" WindowStartupLocation="CenterScreen" WindowStyle="ThreeDBorderWindow">
     <Grid>
-        <Rectangle Height="350" VerticalAlignment="Top">
+        <Rectangle x:Name="rgimg" Height="350" VerticalAlignment="Top">
+            <Rectangle.Fill>
+                <ImageBrush ImageSource="source/Register-Window-Background-3.jpg"/>
+            </Rectangle.Fill>
             <!-- <Rectangle.Fill>
                <ImageBrush ImageSource="D:\work\3 University\3\PM, Software engineering\WPF\Design\Ready\Register-Window-Background-3.jpg" />
             </Rectangle.Fill> -->
@@ -18,12 +21,12 @@
             </Rectangle.Effect>
         </Rectangle>
         <CheckBox x:Name="checkBox" Content="Remember me" HorizontalAlignment="Left" Margin="135,430,0,0" VerticalAlignment="Top" FontFamily="AdonisC"/>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="89,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="253" Background="#FFE8E8E8">
+        <TextBox x:Name="textBox1" HorizontalAlignment="Left" Height="23" Margin="92,298,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Background="#FFE8E8E8">
             <TextBox.Effect>
                 <DropShadowEffect Color="#FFEEEEEE"/>
             </TextBox.Effect>
         </TextBox>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="92,246,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="250" Background="#FFE8E8E8" BorderThickness="1">
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="92,246,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="250" Background="#FFE8E8E8" BorderThickness="1" TextChanged="textBox2_TextChanged">
             <TextBox.Effect>
                 <DropShadowEffect Color="#FFEEEEEE"/>
             </TextBox.Effect>
@@ -33,14 +36,14 @@
                 <DropShadowEffect Color="#FFE8E8E8"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="button1" Content="Register" HorizontalAlignment="Left" Margin="135,481,0,0" VerticalAlignment="Top" Width="148" Height="35" FontSize="16" FontFamily="AdonisC" Background="#FFE0E0E0" BorderThickness="0,0,2,2">
+        <Button x:Name="button1" Content="Register" HorizontalAlignment="Left" Margin="135,485,0,0" VerticalAlignment="Top" Width="148" Height="35" FontSize="16" FontFamily="AdonisC" Background="#FFE0E0E0" BorderThickness="0,0,2,2">
             <Button.Effect>
                 <DropShadowEffect Color="#FFDEDEDE"/>
             </Button.Effect>
         </Button>
-        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="135,450,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="AdonisC"><Run Text="Forgot Password? Click "/><Run Text="here" TextDecorations="Underline"/></TextBlock>
-        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="96,223,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" FontSize="16" FontFamily="AdonisC"/>
-        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="96,277,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="16" FontFamily="AdonisC"/>
+        <TextBlock x:Name="textBlock" HorizontalAlignment="Left" Margin="136,471,0,0" TextWrapping="Wrap" VerticalAlignment="Top" FontFamily="AdonisC"><Run Text="Forgot Password? Click "/><Run Text="here" TextDecorations="Underline"/></TextBlock>
+        <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="96,227,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" FontSize="16" FontFamily="AdonisC"/>
+        <TextBlock x:Name="textBlock2" HorizontalAlignment="Left" Margin="96,279,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" FontSize="16" FontFamily="AdonisC"/>
 
     </Grid>
 </Window>
