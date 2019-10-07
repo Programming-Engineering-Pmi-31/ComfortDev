@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Net.Http;
-using Flurl.Http;
+
 namespace Logic
 {
     public static class Actions
