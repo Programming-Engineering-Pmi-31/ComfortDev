@@ -17,7 +17,7 @@
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Rectangle.Effect>
         </Rectangle>
-        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="92,246,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="250" Background="#FFE8E8E8" BorderThickness="1" TextChanged="textBox2_TextChanged">
+        <TextBox x:Name="textBox2" HorizontalAlignment="Left" Height="23" Margin="92,246,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="250" Background="#FFE8E8E8" BorderThickness="1">
             <TextBox.Effect>
                 <DropShadowEffect Color="#FFEEEEEE"/>
             </TextBox.Effect>
@@ -33,7 +33,7 @@
             </Button.Effect>
         </Button>
         <TextBlock x:Name="textBlock1" HorizontalAlignment="Left" Margin="96,227,0,0" TextWrapping="Wrap" Text="Please, enter the login" VerticalAlignment="Top" FontSize="16" FontFamily="AdonisC"/>
-        <TextBox x:Name="textBox2_Copy" HorizontalAlignment="Left" Height="23" Margin="92,246,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="250" Background="#FFE8E8E8" BorderThickness="1" TextChanged="textBox2_TextChanged">
+        <TextBox x:Name="textBox2_Copy" HorizontalAlignment="Left" Height="23" Margin="92,246,0,0" TextWrapping="Wrap" Text=" " VerticalAlignment="Top" Width="250" Background="#FFE8E8E8" BorderThickness="1">
             <TextBox.Effect>
                 <DropShadowEffect Color="#FFEEEEEE"/>
             </TextBox.Effect>
