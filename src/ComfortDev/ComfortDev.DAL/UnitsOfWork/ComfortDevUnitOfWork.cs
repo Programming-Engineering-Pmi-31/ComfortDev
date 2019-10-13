@@ -12,9 +12,9 @@ namespace ComfortDev.DAL.UnitsOfWork
         private readonly ComfortDevContext db;
         private bool disposed = false;
 
-        public ComfortDevUnitOfWork()
+        public ComfortDevUnitOfWork(ComfortDevContext db)
         {
-            db = new ComfortDevContext();
+            this.db = db;
             CourseTasks = new CourseTaskRepository(db);
             Tasks = new TaskRepository(db);
             TestAnswers = new TestAnswerRepository(db);
@@ -23,6 +23,8 @@ namespace ComfortDev.DAL.UnitsOfWork
             Users = new UserRepository(db);
             UserCourses = new UserCourseRepository(db);
         }
+        public ComfortDevUnitOfWork(): this(new ComfortDevContext()) { }
+
         public IRepository<CourseTask> CourseTasks { get; }
         public IRepository<Task> Tasks { get; }
         public IRepository<TestAnswer> TestAnswers { get; }

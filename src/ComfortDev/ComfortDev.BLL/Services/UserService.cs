@@ -14,10 +14,11 @@ namespace ComfortDev.BLL.Services
     public class UserService : IUserService
     {
         private readonly ComfortDevUnitOfWork database;
-        public UserService()
+        public UserService(ComfortDevUnitOfWork uow)
         {
-            database = new ComfortDevUnitOfWork();
+            database = uow;
         }
+        public UserService(): this(new ComfortDevUnitOfWork()) { }
 
         public User Authenticate(string username, string password)
         {

@@ -10,8 +10,15 @@ namespace ComfortDev.DAL
 {
     public partial class ComfortDevContext : DbContext
     {
+        private string connectionString;
         public ComfortDevContext()
         {
+            connectionString = Secrets.ConnectionString;
+        }
+
+        public ComfortDevContext(string conString)
+        {
+            connectionString = conString;
         }
 
         public ComfortDevContext(DbContextOptions<ComfortDevContext> options)
