@@ -20,25 +20,28 @@ namespace ComfortDev.BLL.Services
         }
         public UserService(): this(new ComfortDevUnitOfWork()) { }
 
-        public User Authenticate(string username, string password)
+        public int Authenticate(string username, string password)
         {
-            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
+            if (string.IsNullOrEmpty(username))
             {
-                return null;
+                throw new Exception("Username is empty.");
+            }
+            else if (string.IsNullOrEmpty(password))
+            {
+                throw new Exception("Password is empty.");
             }
 
             var user = database.Users.Find(user => user.Name == username).SingleOrDefault();
-
-            // check if username exists
             if (user == null)
-                return null;
+            {
+                throw new Exception("User with current name does not exist.");
+            }
+            else if (!VerifyHash(password, user.Hash))
+            {
+                throw new Exception("Invalid password.");
+            }
 
-            // check if password is correct
-            if (!VerifyHash(password, user.Hash))
-                return null;
-
-            // authentication successful
-            return user;
+            return user.Id;
         }
 
         public void Create(string username, string password)

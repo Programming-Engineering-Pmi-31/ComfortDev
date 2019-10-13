@@ -32,34 +32,32 @@ namespace ComfortDev.API.Controllers
         [HttpPost("authenticate")]
         public IActionResult Authenticate(string username, string password)
         {
-            var user = userService.Authenticate(username, password);
-            if (user == null)
+            try 
             {
-                return BadRequest(new { message = "Username or password is incorrect" });
-            }
+                var userId = userService.Authenticate(username, password);
 
-            var tokenHandler = new JwtSecurityTokenHandler();
-            string key = Secrets.JwtKey;
-            byte[] keyByte = HashConverter.PlainTextToBytes(key);
+                var tokenHandler = new JwtSecurityTokenHandler();
+                string key = Secrets.JwtKey;
+                byte[] keyByte = HashConverter.PlainTextToBytes(key);
 
-            var tokenDescriptor = new SecurityTokenDescriptor
-            {
-                Subject = new ClaimsIdentity(new Claim[]
+                var tokenDescriptor = new SecurityTokenDescriptor
                 {
-                    new Claim(ClaimTypes.Name, user.Id.ToString())
-                }),
-                Expires = DateTime.UtcNow.AddDays(1),
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(keyByte), SecurityAlgorithms.HmacSha256Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            var tokenString = tokenHandler.WriteToken(token);
+                    Subject = new ClaimsIdentity(new Claim[]
+                    {
+                    new Claim(ClaimTypes.Name, userId.ToString())
+                    }),
+                    Expires = DateTime.UtcNow.AddDays(1),
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(keyByte), SecurityAlgorithms.HmacSha256Signature)
+                };
+                var token = tokenHandler.CreateToken(tokenDescriptor);
+                var tokenString = tokenHandler.WriteToken(token);
 
-            return Ok(new
+                return Ok(new { token = tokenString });
+            }
+            catch (Exception ex)
             {
-                Id = user.Id,
-                Username = user.Name,
-                Token = tokenString
-            });
+                return BadRequest(new { message = ex.Message });
+            }
         }
 
         [AllowAnonymous]
