@@ -66,7 +66,7 @@ namespace ComfortDev.BLL.Services
             return database.Users.Get(id);
         }
 
-        private static byte[] CreateHash(string password)
+        private byte[] CreateHash(string password)
         {
             if (password == null)
             {
@@ -89,7 +89,7 @@ namespace ComfortDev.BLL.Services
             return hash;
         }
 
-        private static bool VerifyHash(string password, string storedHash)
+        private bool VerifyHash(string password, string storedHash)
         {
             if (password == null)
             {
@@ -123,7 +123,7 @@ namespace ComfortDev.BLL.Services
             return true;
         }
 
-        private static void ValidatePassword(string password)
+        private void ValidatePassword(string password)
         {
             if (string.IsNullOrWhiteSpace(password))
             {
