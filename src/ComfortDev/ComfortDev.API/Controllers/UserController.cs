@@ -68,7 +68,7 @@ namespace ComfortDev.API.Controllers
         {
             try
             {
-                userService.Create(new User { Name = username }, password);
+                userService.Create(username, password);
                 return Ok();
             }
             catch (Exception ex)

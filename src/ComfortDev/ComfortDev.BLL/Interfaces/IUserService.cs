@@ -10,7 +10,7 @@ namespace ComfortDev.BLL.Interfaces
         User Authenticate(string username, string password);
         IEnumerable<User> GetAll();
         User GetById(int id);
-        User Create(User user, string password);
+        void Create(string username, string password);
         // void Update(User user, string password = null);
         void Delete(int id);
     }

@@ -41,26 +41,16 @@ namespace ComfortDev.BLL.Services
             return user;
         }
 
-        public User Create(User user, string password)
+        public void Create(string username, string password)
         {
-            // validation
-            if (string.IsNullOrWhiteSpace(password))
-            {
-                // use custom exceptions
-                throw new Exception("Password is required");
-            }
-            if (database.Users.Find(u => u.Name == user.Name).Count() > 0)
-            {
-                throw new Exception("Username " + user.Name + " is already taken");
-            }
+            ValidateUsername(username);
+            ValidatePassword(password);
 
-            byte[] hash = CreateHash(password);
-            user.Hash = HashConverter.ToString(hash);
+            var user = new User { Name = username };
+            user.Hash = HashConverter.ToString(CreateHash(password));
 
             database.Users.Create(user);
             database.Save();
-
-            return user;
         }
 
         public IEnumerable<User> GetAll()
@@ -128,6 +118,60 @@ namespace ComfortDev.BLL.Services
                 }
             }
             return true;
+        }
+
+        private static void ValidatePassword(string password)
+        {
+            if (string.IsNullOrWhiteSpace(password))
+            {
+                throw new Exception("Password is required.");
+            }
+            else if (password.Length < 8)
+            {
+                throw new Exception("Password must be a minimum of 8 characters in length.");
+            }
+            else if (password.Length > 20)
+            {
+                throw new Exception("Password can be a maximum of 20 characters in length.");
+            }
+
+            if (!(password.Count(x => char.IsLetter(x)) > 0))
+            {
+                throw new Exception("Password must have at least one letter.");
+            }
+
+            if (!(password.Count(x => char.IsDigit(x)) > 0))
+            {
+                throw new Exception("Password must have at least one digit.");
+            }
+        }
+
+        private void ValidateUsername(string username)
+        {
+            if (database.Users.Find(user => user.Name == username).Count() > 0)
+            {
+                throw new Exception("Username \"" + username + "\" is already taken.");
+            }
+            else if (string.IsNullOrWhiteSpace(username))
+            {
+                throw new Exception("Username is required.");
+            }
+            else if (username.Length < 3)
+            {
+                throw new Exception("Username must be a minimum of 3 characters in length.");
+            }
+            else if (username.Length > 15)
+            {
+                throw new Exception("Username can be a maximum of 15 characters in length.");
+            }
+            else if (username.Count(x => char.IsDigit(x) || char.IsLetter(x)) < username.Length)
+            {
+                throw new Exception("Username must consist only of letters and numbers.");
+            }
+            else if (username.Count(x => char.IsDigit(x)) == username.Length)
+            {
+                throw new Exception("Username cannot consist of digits only.");
+            }
         }
 
         public void Delete(int id)
