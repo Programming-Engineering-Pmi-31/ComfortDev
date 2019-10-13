@@ -33,9 +33,9 @@ namespace ComfortDev.Tests
         {
             var userService = CreateUserService();
             var username = "TestUserName";
-            var password = "TestPassword";
+            var password = "TestPassword123";
 
-            userService.Create(new User { Name = username }, password);
+            userService.Create(username, password);
             var user = userService.GetAll().SingleOrDefault();
             Assert.AreEqual(username, user.Name);
         }
@@ -45,9 +45,9 @@ namespace ComfortDev.Tests
         {
             var userService = CreateUserService();
             var username = "TestUserName";
-            var password = "TestPassword";
+            var password = "TestPassword123";
 
-            userService.Create(new User { Name = username }, password);
+            userService.Create(username, password);
             var user = userService.GetAll().SingleOrDefault();
 
             userService.Delete(user.Id);
@@ -59,9 +59,9 @@ namespace ComfortDev.Tests
         {
             var userService = CreateUserService();
             var username = "TestUserName";
-            var password = "TestPassword";
+            var password = "TestPassword123";
 
-            userService.Create(new User { Name = username }, password);
+            userService.Create(username, password);
             var user = userService.Authenticate(username, password);
             Assert.NotNull(user);
         }
@@ -71,11 +71,11 @@ namespace ComfortDev.Tests
         {
             var userService = CreateUserService();
             var username = "TestUserName";
-            var password = "TestPassword";
+            var password = "TestPassword123";
 
-            int id = 100;
-            userService.Create(new User { Name = username, Id = id }, password);
-            Assert.NotNull(userService.GetById(id));
+            userService.Create(username, password);
+            var user = userService.GetAll().FirstOrDefault();
+            Assert.NotNull(userService.GetById(user.Id));
         }
 
         [Test]
@@ -83,10 +83,10 @@ namespace ComfortDev.Tests
         {
             var userService = CreateUserService();
             var username = "TestUserName";
-            var password = "TestPassword";
+            var password = "TestPassword123";
 
-            userService.Create(new User { Id = 100, Name = username }, password);
-            userService.Create(new User { Id = 101, Name = username + 2 }, password + 2);
+            userService.Create(username, password);
+            userService.Create(username + 2, password);
 
             Assert.AreEqual(2, userService.GetAll().Count());
         }
