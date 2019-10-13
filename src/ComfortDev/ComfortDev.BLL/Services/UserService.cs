@@ -100,27 +100,12 @@ namespace ComfortDev.BLL.Services
                 throw new ArgumentException("Value cannot be empty or whitespace only string.", "password");
             }
 
-            byte[] storedHashByte = HashConverter.ToBytes(storedHash);
-            if (storedHashByte.Length != 16)
+            byte[] key = HashConverter.PlainTextToBytes(Secrets.MD5Key);
+            using (var hmac = new System.Security.Cryptography.HMACMD5(key))
             {
-                throw new ArgumentException("Invalid length of password hash (16 bytes expected).", "storedHashByte");
+                var computedHash = HashConverter.ToString(hmac.ComputeHash(HashConverter.PlainTextToBytes(password)));
+                return storedHash == computedHash;
             }
-
-            string key = Secrets.MD5Key;
-            byte[] keyByte = HashConverter.PlainTextToBytes(key);
-
-            using (var hmac = new System.Security.Cryptography.HMACMD5(keyByte))
-            {
-                var computedHash = hmac.ComputeHash(HashConverter.PlainTextToBytes(password));
-                for (int i = 0; i < computedHash.Length; ++i)
-                {
-                    if (computedHash[i] != storedHashByte[i])
-                    {
-                        return false;
-                    }
-                }
-            }
-            return true;
         }
 
         private void ValidatePassword(string password)
