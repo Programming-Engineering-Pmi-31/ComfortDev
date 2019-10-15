@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComfortDevClient"
         mc:Ignorable="d"
-        Title="Login form" Height="600" Width="440" ResizeMode="NoResize">
+        Title="Login form" Height="600" Width="440" ResizeMode="NoResize"
+        WindowStartupLocation="CenterScreen">
     <Grid>
         <Canvas Margin="0,0,0,221">
             <Canvas.Background>
@@ -16,11 +17,11 @@
             <Canvas.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Canvas.Effect>
-            <TextBox x:Name="textbox_login" Height="23" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="105" Width="260"/>
-            <TextBox x:Name="textbox_password" Height="23" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="154" Width="260"/>
             <Label Content="Email&#xD;&#xA;" Canvas.Left="10" Canvas.Top="80" Width="58" Height="25" FontSize="14"/>
             <Label Content="Password&#xD;&#xA;" Canvas.Left="10" Canvas.Top="128" Height="26" RenderTransformOrigin="0.556,-0.597" Width="109" FontSize="14"/>
             <Label Content="Login" Canvas.Left="100" Canvas.Top="26" Height="56" Width="91" FontSize="28" FontFamily="Palatino Linotype" RenderTransformOrigin="0.608,0.256"/>
+            <PasswordBox x:Name="passwordBox" Canvas.Left="10" Canvas.Top="154" Width="260"/>
+            <TextBox x:Name="loginBox" Height="18" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="105" Width="260"/>
         </Canvas>
         <Button x:Name="button_login" Content="Submit" Margin="142,398,142,0" VerticalAlignment="Top" Height="35" Background="#FFD65CEC" FontSize="18">
             <Button.Effect>
