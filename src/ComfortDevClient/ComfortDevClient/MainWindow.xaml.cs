@@ -31,5 +31,10 @@ namespace ComfortDevClient
             RegisterWindow w = new RegisterWindow();
             w.Show();
         }
+
+        private void button_login_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

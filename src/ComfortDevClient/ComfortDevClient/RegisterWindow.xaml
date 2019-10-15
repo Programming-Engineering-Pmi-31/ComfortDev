@@ -8,31 +8,31 @@
         Title="RegisterWindow" Height="600" Width="440"
         WindowStartupLocation="CenterScreen" ResizeMode="NoResize">
     <Grid>
-        <Canvas Margin="0,0,-2,219">
+        <Canvas Margin="0,0,0,219">
             <Canvas.Background>
-                <ImageBrush ImageSource="img/Register-Window-Background-3.jpg"/>
+                <ImageBrush ImageSource="/source/Register-Window-Background-3.jpg"/>
             </Canvas.Background>
             <Rectangle Height="3" Stroke="White" VerticalAlignment="Top" Fill="#FFD1D1D1" Canvas.Left="40" Canvas.Top="496" Width="354"/>
         </Canvas>
-        <Canvas Margin="77,170,75,148" Width="280" Background="White">
+        <Canvas Margin="80,167,80,166" Width="280" Background="White">
             <Canvas.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Canvas.Effect>
-            <TextBox x:Name="loginBox" Height="18" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="100" Width="260"/>
-            <Label Content="Email&#xA;" Canvas.Left="10" Canvas.Top="75" Width="58" Height="25" FontSize="14"/>
-            <Label Content="Password&#xA;" Canvas.Left="10" Canvas.Top="121" Height="26" RenderTransformOrigin="0.556,-0.597" Width="109" FontSize="14"/>
-            <Label Content="Register" Canvas.Left="83" Canvas.Top="25" Height="56" Width="114" FontSize="28" FontFamily="Palatino Linotype" RenderTransformOrigin="0.608,0.256"/>
-            <Label Content="Re-enter" Canvas.Left="10" Canvas.Top="165" Width="112" FontSize="14"/>
-            <PasswordBox x:Name="passwordBox1" Canvas.Left="10" Canvas.Top="147" Width="260"/>
-            <PasswordBox x:Name="passwordBox2" Canvas.Left="10" Canvas.Top="194" Width="260"/>
+            <TextBox x:Name="loginBox" Height="18" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="86" Width="260"/>
+            <Label Content="Email&#xA;" Canvas.Left="10" Canvas.Top="61" Width="58" Height="25" FontSize="14"/>
+            <Label Content="Password&#xA;" Canvas.Left="10" Canvas.Top="107" Height="26" RenderTransformOrigin="0.556,-0.597" Width="109" FontSize="14"/>
+            <Label Content="Register" Canvas.Left="83" Canvas.Top="16" Height="56" Width="114" FontSize="28" FontFamily="Palatino Linotype" RenderTransformOrigin="0.608,0.256"/>
+            <Label Content="Re-enter" Canvas.Left="10" Canvas.Top="151" Width="112" FontSize="14"/>
+            <PasswordBox x:Name="passwordBox1" Canvas.Left="10" Canvas.Top="133" Width="260"/>
+            <PasswordBox x:Name="passwordBox2" Canvas.Left="10" Canvas.Top="180" Width="260"/>
+            <Rectangle Height="3" Stroke="White" Fill="#FFD1D1D1" Width="256" Canvas.Top="61" Canvas.Left="10"/>
         </Canvas>
-        <Button x:Name="button_login" Content="Sign up" Margin="142,398,140,0" VerticalAlignment="Top" Height="35" Background="#FFD65CEC" FontSize="18">
+        <Button x:Name="button_login" Content="Sign up" Margin="141,0,141,151" Background="#FFD65CEC" FontSize="18" Height="35" VerticalAlignment="Bottom">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>
         </Button>
-        <Rectangle Height="3" Margin="89,239,0,0" Stroke="White" VerticalAlignment="Top" Fill="#FFD1D1D1" HorizontalAlignment="Left" Width="256"/>
-        <Button x:Name="button_backToMainWindow" Content="Back" Margin="142,516,142,0" Height="21" VerticalAlignment="Top" Background="#FFD6D6D6" Click="Button_Click">
+        <Button x:Name="button_backToMainWindow" Content="Back" Margin="141,515,141,0" Height="21" VerticalAlignment="Top" Background="#FFD6D6D6" Click="Button_Click">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>

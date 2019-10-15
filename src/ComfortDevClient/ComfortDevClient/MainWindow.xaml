@@ -5,37 +5,37 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComfortDevClient"
         mc:Ignorable="d"
-        Title="Login form" Height="600" Width="440" ResizeMode="NoResize"
-        WindowStartupLocation="CenterScreen">
+        Title="LoginWindow" Height="600" Width="440" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Canvas Margin="0,0,0,221">
+        <Canvas HorizontalAlignment="Center" Height="360" VerticalAlignment="Top" Width="440">
             <Canvas.Background>
-                <ImageBrush ImageSource="img/Register-Window-Background-3.jpg"/>
+                <ImageBrush ImageSource="/source/Register-Window-Background-3.jpg"/>
             </Canvas.Background>
         </Canvas>
-        <Canvas Margin="77,170,77,150" Width="280" Background="White">
+        <Canvas Margin="80,167,80,166" Width="280" Background="White">
             <Canvas.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Canvas.Effect>
-            <Label Content="Email&#xD;&#xA;" Canvas.Left="10" Canvas.Top="80" Width="58" Height="25" FontSize="14"/>
-            <Label Content="Password&#xD;&#xA;" Canvas.Left="10" Canvas.Top="128" Height="26" RenderTransformOrigin="0.556,-0.597" Width="109" FontSize="14"/>
-            <Label Content="Login" Canvas.Left="100" Canvas.Top="26" Height="56" Width="91" FontSize="28" FontFamily="Palatino Linotype" RenderTransformOrigin="0.608,0.256"/>
+            <Label Content="Email&#xA;" Canvas.Left="10" Canvas.Top="80" Width="58" Height="25" FontSize="14"/>
+            <Label Content="Password&#xA;" Canvas.Left="10" Canvas.Top="128" Height="26" RenderTransformOrigin="0.556,-0.597" Width="109" FontSize="14"/>
+            <Label Content="Login" Canvas.Left="94" Canvas.Top="18" Height="56" Width="92" FontSize="28" FontFamily="Palatino Linotype" RenderTransformOrigin="0.608,0.256"/>
             <PasswordBox x:Name="passwordBox" Canvas.Left="10" Canvas.Top="154" Width="260"/>
             <TextBox x:Name="loginBox" Height="18" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="105" Width="260"/>
         </Canvas>
-        <Button x:Name="button_login" Content="Submit" Margin="142,398,142,0" VerticalAlignment="Top" Height="35" Background="#FFD65CEC" FontSize="18">
+        <Button x:Name="button_register" Content="Register" Margin="145,516,145,0" Height="21" VerticalAlignment="Top" Background="#FFD6D6D6" Click="button_register_Click">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="button_register" Content="Register" Margin="142,516,142,0" Height="21" VerticalAlignment="Top" Background="#FFD6D6D6" Click="button_register_Click">
+        <CheckBox Content="Remember Me" HorizontalAlignment="Center" Margin="0,0,0,131" Height="15" VerticalAlignment="Bottom"/>
+        <TextBlock x:Name="textBlock" Margin="0,504,0,0" TextWrapping="Wrap" FontFamily="AdonisC" FontSize="10" HorizontalAlignment="Center" Width="124" Height="12" VerticalAlignment="Top"><Run Text="Forgot Password? Click "/><Run Text="here" TextDecorations="Underline"/></TextBlock>
+        <Rectangle Height="3" Margin="40,496,46,0" Stroke="White" VerticalAlignment="Top" Fill="#FFD1D1D1"/>
+        <Rectangle Height="3" Margin="89,237,0,0" Stroke="White" VerticalAlignment="Top" Fill="#FFD1D1D1" HorizontalAlignment="Left" Width="256"/>
+        <Button x:Name="button_login" Content="Submit" Margin="145,0,145,151" Background="#FFD65CEC" FontSize="18" Click="button_login_Click" Height="35" VerticalAlignment="Bottom">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>
         </Button>
-        <CheckBox Content="Remember Me" HorizontalAlignment="Left" Margin="159,438,0,0" VerticalAlignment="Top"/>
-        <TextBlock x:Name="textBlock" Margin="0,504,151,0" TextWrapping="Wrap" FontFamily="AdonisC" FontSize="10" HorizontalAlignment="Right" Width="124" Height="12" VerticalAlignment="Top"><Run Text="Forgot Password? Click "/><Run Text="here" TextDecorations="Underline"/></TextBlock>
-        <Rectangle Height="3" Margin="40,496,40,0" Stroke="White" VerticalAlignment="Top" Fill="#FFD1D1D1"/>
-        <Rectangle Height="3" Margin="89,239,0,0" Stroke="White" VerticalAlignment="Top" Fill="#FFD1D1D1" HorizontalAlignment="Left" Width="256"/>
+
     </Grid>
-</Window >
+</Window>
