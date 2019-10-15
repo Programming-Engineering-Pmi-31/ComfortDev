@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using Logic;
 
 namespace ComfortDevClient
 {
@@ -24,6 +23,13 @@ namespace ComfortDevClient
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void button_register_Click(object sender, RoutedEventArgs e)
+        {
+            Hide();
+            RegisterWindow w = new RegisterWindow();
+            w.Show();
         }
     }
 }
