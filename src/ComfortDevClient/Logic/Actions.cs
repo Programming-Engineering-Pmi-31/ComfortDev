@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Threading.Tasks;
 
 namespace Logic
 {
@@ -17,42 +18,58 @@ namespace Logic
         private const string API_ADDRESS = "http://localhost:31415";
         private static string token = null;
 
-        public static ActionResult RegisterUser(string username, string password)
+        public static async Task<ActionResult> RegisterUser(string username, string password)
         {
-            using (var client = new HttpClient())
+            try
             {
-                var response = client.PostAsync(
-                    API_ADDRESS + $"/api/user/register/?username={username}&password={password}", 
-                    null
-                );
+                using var client = new HttpClient();
+
+                var url = API_ADDRESS + $"/api/user/register/?username={username}&password={password}";
+                using var response = await client.PostAsync(url, null);
 
                 return new ActionResult
                 {
-                    StatusCode = response.Result.StatusCode,
-                    Message = GetDataDict(response.Result)["message"]
+                    StatusCode = response.StatusCode,
+                    Message = GetDataDict(response)?["message"]
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ActionResult
+                {
+                    StatusCode = HttpStatusCode.InternalServerError,
+                    Message = ex.Message
                 };
             }
         }
 
-        public static ActionResult AuthenticateUser(string username, string password)
+        public static async Task<ActionResult> AuthenticateUser(string username, string password)
         {
-            using (var client = new HttpClient())
+            try
             {
-                var response = client.PostAsync(
-                    API_ADDRESS + $"/api/user/authenticate/?username={username}&password={password}",
-                    null
-                );
+                using var client = new HttpClient();
 
-                var dataDict = GetDataDict(response.Result);
-                if (response.Result.StatusCode == HttpStatusCode.OK)
+                var url = API_ADDRESS + $"/api/user/authenticate/?username={username}&password={password}";
+                using var response = await client.PostAsync(url, null);
+
+                var dataDict = GetDataDict(response);
+                if (response.StatusCode == HttpStatusCode.OK)
                 {
                     token = dataDict["token"];
                 }
 
                 return new ActionResult
                 {
-                    StatusCode = response.Result.StatusCode,
-                    Message = dataDict["message"]
+                    StatusCode = response.StatusCode,
+                    Message = dataDict?["message"]
+                };
+            }
+            catch (Exception ex)
+            {
+                return new ActionResult
+                {
+                    StatusCode = HttpStatusCode.InternalServerError,
+                    Message = ex.Message
                 };
             }
         }
