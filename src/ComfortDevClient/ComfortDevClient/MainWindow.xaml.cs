@@ -21,19 +21,19 @@ namespace ComfortDevClient {
     {
         public MainWindow()
         {
-            InitializeComponent();
-            
-
+            InitializeComponent();        
         }
 
         private void button_login_Click(object sender, RoutedEventArgs e)
         {
             if (loginBox.Text.Length < 4 || passwordBox.Password.Length <= 8)
+            {
                 MessageBox.Show("Your login or password is wrong!");
+            }
             else
             {
-                var responce = Actions.AuthenticateUser(loginBox.Text, passwordBox.Password);
-                if ((int)responce.StatusCode == 200)
+                var response = Actions.AuthenticateUser(loginBox.Text, passwordBox.Password);
+                if ((int)response.StatusCode == 200)
                 {
                     MessageBox.Show("Welcome");
                 }
@@ -48,11 +48,13 @@ namespace ComfortDevClient {
         {
 
             if (loginBox.Text.Length < 4 || passwordBox.Password.Length <= 8)
+            {
                 MessageBox.Show("Your login or password is short, please try again!");
+            }
             else
             {
-                var responce = Actions.RegisterUser(loginBox.Text, passwordBox.Password);
-                if ((int)responce.StatusCode == 200)
+                var response = Actions.RegisterUser(loginBox.Text, passwordBox.Password);
+                if ((int)response.StatusCode == 200)
                 {
                     MessageBox.Show("Register successful!");
                 }
