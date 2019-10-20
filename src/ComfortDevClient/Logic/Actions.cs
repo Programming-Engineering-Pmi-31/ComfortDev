@@ -61,7 +61,7 @@ namespace Logic
                 return new ActionResult
                 {
                     StatusCode = response.StatusCode,
-                    Message = dataDict?["message"]
+                    Message = dataDict?.GetValueOrDefault("message")
                 };
             }
             catch (Exception ex)
