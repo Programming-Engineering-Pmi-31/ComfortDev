@@ -5,43 +5,35 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComfortDevClient"
         mc:Ignorable="d"
-        Title="Main Window" Height="600" Width="440" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+        Title="ComfortDevClient" Height="600" Width="440" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Canvas HorizontalAlignment="Center" Height="360" VerticalAlignment="Top" Width="440">
+        <Canvas Margin="0,0,0,200">
             <Canvas.Background>
-                <ImageBrush ImageSource="/source/Register-Window-Background-3.jpg"/>
+                <ImageBrush ImageSource="/img/Register-Window-Background-3.jpg"/>
             </Canvas.Background>
         </Canvas>
 
-        <Canvas Margin="80,167,80,166" Width="280" Background="White">
-            <Canvas.Effect>
+        <Rectangle Margin="73,137,73,155" Stroke="White" RadiusX="17" RadiusY="17" Fill="White">
+            <Rectangle.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
-            </Canvas.Effect>
-            <TextBox x:Name="loginBox" Height="18" Canvas.Left="10" TextWrapping="Wrap" Canvas.Top="104" Width="260"/>
-            <Label Content="Email&#xA;" Canvas.Left="10" Canvas.Top="79" Width="58" Height="25" FontSize="14"/>
-            <Label Content="Password&#xA;" Canvas.Left="10" Canvas.Top="132" Height="26" RenderTransformOrigin="0.556,-0.597" Width="109" FontSize="14"/>
-            <Label Content="Login
-                   " Canvas.Left="96" Canvas.Top="10" Height="56" Width="84" FontSize="28" FontFamily="Palatino Linotype" RenderTransformOrigin="0.608,0.256"/>
-            <PasswordBox x:Name="passwordBox" Canvas.Left="10" Canvas.Top="158" Width="260"/>
-            <Rectangle Height="3" Stroke="White" Fill="#FFE8E8E8" Width="256" Canvas.Top="61" Canvas.Left="10"/>
-        </Canvas>
-        <Button x:Name="button_login" Content="Submit" Margin="141,0,141,151" 
+            </Rectangle.Effect>
+        </Rectangle>
+        <Button x:Name="Btn1" Content="Sign Up" Command="{Binding bToRegistr}"
+                Margin="170,522,170,0"
                 BorderBrush="Transparent"
                 BorderThickness="0"
-                Background="#FFD65CEC" FontSize="18" Height="35" VerticalAlignment="Bottom" Click="button_login_Click">
+                Background="#FFB896E8" Height="25" VerticalAlignment="Top" Click="Btn1_Click">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>
         </Button>
-        <Button x:Name="button_backToMainWindow" Content="Sign Up" 
-                BorderBrush="Transparent"
-                BorderThickness="0"
-                Margin="166,0,166,69" Background="#FFD6D6D6" Height="21" VerticalAlignment="Bottom" Click="button_regist_Click">
-            <Button.Effect>
-                <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
-            </Button.Effect>
-        </Button>
-        <Rectangle Margin="73,0,73,99" Stroke="White" Fill="#FFE8E8E8" Height="4" VerticalAlignment="Bottom"/>
-        <CheckBox x:Name="ChekBoxRememberMe" Content="Remember Me" Margin="162,438,162,0" Height="15" VerticalAlignment="Top"/>
+        <Rectangle Margin="73,513,0,0" Stroke="White" Fill="#FFE8E8E8" Height="4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="294"/>
+        <Frame
+            x:Name="Main"
+            Margin="73,137,73,100"
+            NavigationUIVisibility="Hidden"
+            Content="{Binding CurrentPage}"
+            Opacity="{Binding FrameOpasity}"/>
+
     </Grid>
 </Window>
