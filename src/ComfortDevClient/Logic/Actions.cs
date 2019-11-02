@@ -1,8 +1,10 @@
-﻿using Newtonsoft.Json;
+﻿using Logic.Classes;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 
 namespace Logic
@@ -74,7 +76,24 @@ namespace Logic
             }
         }
 
-        static Dictionary<string, string> GetDataDict(HttpResponseMessage httpResponse)
+        public static async Task<IEnumerable<Question>> GetTestQuestions()
+        {
+            try
+            {
+                using var client = new HttpClient();
+                var streamTask = client.GetStreamAsync(API_ADDRESS + "/api/test");
+
+                var serializer = new DataContractJsonSerializer(typeof(IEnumerable<Question>));
+                var questions = serializer.ReadObject(await streamTask) as IEnumerable<Question>;
+                return questions;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        private static Dictionary<string, string> GetDataDict(HttpResponseMessage httpResponse)
         {
             string rawData = httpResponse.Content.ReadAsStringAsync().Result;
             return JsonConvert.DeserializeObject<Dictionary<string, string>>(rawData);
