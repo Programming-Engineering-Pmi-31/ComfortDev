@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace ComfortDev.Common.Entities
 {
@@ -11,11 +12,15 @@ namespace ComfortDev.Common.Entities
             TestAnswers = new HashSet<TestAnswer>();
         }
 
+        [JsonIgnore]
         public int Id { get; set; }
         public string Title { get; set; }
+        [JsonIgnore]
         public string ImageSource { get; set; }
 
+        [JsonIgnore]
         public virtual ICollection<Task> Tasks { get; set; }
+        [JsonIgnore]
         public virtual ICollection<TestAnswer> TestAnswers { get; set; }
     }
 }
