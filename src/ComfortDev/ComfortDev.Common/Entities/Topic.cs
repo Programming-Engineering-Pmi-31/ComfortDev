@@ -12,7 +12,6 @@ namespace ComfortDev.Common.Entities
             TestAnswers = new HashSet<TestAnswer>();
         }
 
-        [JsonIgnore]
         public int Id { get; set; }
         public string Title { get; set; }
         [JsonIgnore]
