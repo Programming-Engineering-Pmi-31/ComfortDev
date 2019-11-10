@@ -93,6 +93,23 @@ namespace Logic
             }
         }
 
+        public static async Task<IEnumerable<Topic>> GetTopics()
+        {
+            try
+            {
+                using var client = new HttpClient();
+                var streamTask = client.GetStreamAsync(API_ADDRESS + "/api/topics");
+
+                var serializer = new DataContractJsonSerializer(typeof(IEnumerable<Topic>));
+                var topics = serializer.ReadObject(await streamTask) as IEnumerable<Topic>;
+                return topics;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
         private static Dictionary<string, string> GetDataDict(HttpResponseMessage httpResponse)
         {
             string rawData = httpResponse.Content.ReadAsStringAsync().Result;
