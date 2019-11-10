@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
+using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
 using System.Threading.Tasks;
 
@@ -103,6 +104,34 @@ namespace Logic
                 var serializer = new DataContractJsonSerializer(typeof(IEnumerable<Topic>));
                 var topics = serializer.ReadObject(await streamTask) as IEnumerable<Topic>;
                 return topics;
+            }
+            catch
+            {
+                return null;
+            }
+        }
+
+        public static async Task<UserCourse> CreateUserCourse(int topicId)
+        {
+            if (token == null)
+            {
+                return null;
+            }
+
+            try
+            {
+                using var client = new HttpClient();
+                client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
+
+                var streamTask = client.GetStreamAsync(API_ADDRESS + $"/api/userCourses/create?topicId={topicId}");
+
+                var jsonSerializerSettings = new DataContractJsonSerializerSettings
+                {
+                    DateTimeFormat = new DateTimeFormat("yyyy-MM-dd'T'HH:mm:ss.fffffffK")
+                };
+                var serializer = new DataContractJsonSerializer(typeof(UserCourse), jsonSerializerSettings);
+                var userCourse = serializer.ReadObject(await streamTask) as UserCourse;
+                return userCourse;
             }
             catch
             {
