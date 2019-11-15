@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Json;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace Logic
@@ -26,9 +27,11 @@ namespace Logic
             try
             {
                 using var client = new HttpClient();
+                var json = JsonConvert.SerializeObject(new { username, password });
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var url = API_ADDRESS + $"/api/user/register/?username={username}&password={password}";
-                using var response = await client.PostAsync(url, null);
+                var url = API_ADDRESS + "/api/user/register";
+                using var response = await client.PostAsync(url, data);
 
                 return new ActionResult
                 {
@@ -51,9 +54,11 @@ namespace Logic
             try
             {
                 using var client = new HttpClient();
+                var json = JsonConvert.SerializeObject(new { username, password });
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
 
-                var url = API_ADDRESS + $"/api/user/authenticate/?username={username}&password={password}";
-                using var response = await client.PostAsync(url, null);
+                var url = API_ADDRESS + "/api/user/authenticate";
+                using var response = await client.PostAsync(url, data);
 
                 var dataDict = GetDataDict(response);
                 if (response.StatusCode == HttpStatusCode.OK)
@@ -121,16 +126,18 @@ namespace Logic
             try
             {
                 using var client = new HttpClient();
+                var json = JsonConvert.SerializeObject(new { topicId });
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
-                var streamTask = client.GetStreamAsync(API_ADDRESS + $"/api/userCourses/create?topicId={topicId}");
+                var response = await client.PostAsync(API_ADDRESS + "/api/userCourses/create", data);
 
                 var jsonSerializerSettings = new DataContractJsonSerializerSettings
                 {
                     DateTimeFormat = new DateTimeFormat("yyyy-MM-dd'T'HH:mm:ss.fffffffK")
                 };
                 var serializer = new DataContractJsonSerializer(typeof(UserCourse), jsonSerializerSettings);
-                var userCourse = serializer.ReadObject(await streamTask) as UserCourse;
+                var userCourse = serializer.ReadObject(await response.Content.ReadAsStreamAsync()) as UserCourse;
                 return userCourse;
             }
             catch
