@@ -126,7 +126,7 @@ namespace Logic
             try
             {
                 using var client = new HttpClient();
-                var json = JsonConvert.SerializeObject(new { topicId });
+                var json = JsonConvert.SerializeObject(topicId);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 client.DefaultRequestHeaders.Authorization = new System.Net.Http.Headers.AuthenticationHeaderValue("Bearer", token);
 
