@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ComfortDevClient"
-        mc:Ignorable="d"
+        mc:Ignorable="d" MouseLeftButtonDown="Window_MouseLeftButtonDown"
         Title="ComfortDevClient" Height="600" Width="440" WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
         <Canvas Margin="0,0,0,200">
@@ -22,7 +22,7 @@
                 Margin="170,522,170,0"
                 BorderBrush="Transparent"
                 BorderThickness="0"
-                Background="#FFB896E8" Height="25" VerticalAlignment="Top" Click="Btn1_Click">
+                Background="#FF96FF4D" Height="25" VerticalAlignment="Top" Click="Btn1_Click" FontFamily="Agency FB" FontSize="18">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>
@@ -34,6 +34,11 @@
             NavigationUIVisibility="Hidden"
             Content="{Binding CurrentPage}"
             Opacity="{Binding FrameOpasity}"/>
-
+        <Button Content="X" Margin="420,0,0,0" 
+                Background="#FFFFC447" BorderBrush="Transparent" BorderThickness="0"
+                VerticalAlignment="Top" Height="20" FontFamily="Bauhaus 93" FontWeight="Normal" FontStyle="Normal" Click="Button_Close"/>
+        <Button Content="_" Margin="395,0,25,0" 
+                Background="#FFFFC447" BorderBrush="Transparent" BorderThickness="0"
+                VerticalAlignment="Top" Height="20" FontFamily="Bauhaus 93" FontWeight="Normal" FontStyle="Normal" Click="Button_Hide"/>
     </Grid>
 </Window>
