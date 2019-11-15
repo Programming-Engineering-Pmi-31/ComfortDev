@@ -21,8 +21,8 @@ namespace ComfortDev.API.Controllers
             userService = new UserCoursesService();
         }
 
-        [HttpGet("create")]
-        public IActionResult CreateCourse(int topicId)
+        [HttpPost("create")]
+        public IActionResult CreateCourse([FromBody]int topicId)
         {
             try
             {
