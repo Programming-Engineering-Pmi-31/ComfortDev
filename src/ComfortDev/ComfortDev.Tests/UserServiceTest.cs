@@ -32,22 +32,22 @@ namespace ComfortDev.Tests
         public void CreateTest()
         {
             var userService = CreateUserService();
-            var username = "TestUserName";
+            var email = "test.email@example.com";
             var password = "TestPassword123";
 
-            userService.Create(username, password);
+            userService.Create(email, password);
             var user = userService.GetAll().SingleOrDefault();
-            Assert.AreEqual(username, user.Name);
+            Assert.AreEqual(email, user.Name);
         }
 
         [Test]
         public void DeleteUser()
         {
             var userService = CreateUserService();
-            var username = "TestUserName";
+            var email = "test.email@example.com";
             var password = "TestPassword123";
 
-            userService.Create(username, password);
+            userService.Create(email, password);
             var user = userService.GetAll().SingleOrDefault();
 
             userService.Delete(user.Id);
@@ -58,11 +58,11 @@ namespace ComfortDev.Tests
         public void AuthenticateTest()
         {
             var userService = CreateUserService();
-            var username = "TestUserName";
+            var email = "test.email@example.com";
             var password = "TestPassword123";
 
-            userService.Create(username, password);
-            var user = userService.Authenticate(username, password);
+            userService.Create(email, password);
+            var user = userService.Authenticate(email, password);
             Assert.NotNull(user);
         }
 
@@ -70,10 +70,10 @@ namespace ComfortDev.Tests
         public void GetByIdTest()
         {
             var userService = CreateUserService();
-            var username = "TestUserName";
+            var email = "test.email@example.com";
             var password = "TestPassword123";
 
-            userService.Create(username, password);
+            userService.Create(email, password);
             var user = userService.GetAll().FirstOrDefault();
             Assert.NotNull(userService.GetById(user.Id));
         }
@@ -82,11 +82,12 @@ namespace ComfortDev.Tests
         public void GetAll()
         {
             var userService = CreateUserService();
-            var username = "TestUserName";
+            var email1 = "test.email1@example.com";
+            var email2 = "test.email2@example.com";
             var password = "TestPassword123";
 
-            userService.Create(username, password);
-            userService.Create(username + 2, password);
+            userService.Create(email1, password);
+            userService.Create(email2, password);
 
             Assert.AreEqual(2, userService.GetAll().Count());
         }
