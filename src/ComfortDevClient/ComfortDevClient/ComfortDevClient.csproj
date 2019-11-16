@@ -7,7 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="img\BackGround1.jpg" />
     <None Remove="img\Register-Window-Background-3.jpg" />
   </ItemGroup>
 
@@ -20,9 +19,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="img\BackGround1.jpg">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
     <Resource Include="img\Register-Window-Background-3.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

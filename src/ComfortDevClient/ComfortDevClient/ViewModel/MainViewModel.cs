@@ -4,7 +4,6 @@ using System.Threading.Tasks;
 using System.Threading;
 using GalaSoft.MvvmLight;
 using GalaSoft.MvvmLight.Command;
-using ComfortDevClient.Pages;
 
 namespace ComfortDevClient.ViewModel
 {
@@ -54,7 +53,6 @@ namespace ComfortDevClient.ViewModel
         {
             get { return new RelayCommand(() => SlowOpasity(Log)); }
         }
-
         public async void SlowOpasity(Page page)
         {
             await Task.Factory.StartNew(() =>

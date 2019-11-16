@@ -8,26 +8,21 @@
       d:DesignHeight="453" d:DesignWidth="284"
       Title="Registration">
     <Grid>
-        <Label Content="Registration" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Agency FB"/>
+        <Label Content="Registration" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Cambria Math"/>
         <Button 
             BorderBrush="Transparent"
-            BorderThickness="0" FontFamily="Agency FB" FontSize="18"
-            Content="Sign Up" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" Height="32" Width="144" Background="#FFBCD600" Click="Button_Click">
+            BorderThickness="0"
+            Content="Sign Up" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" Height="32" Width="144" Background="#FFD65CEC" Click="Button_Click">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>
         </Button>
         <Rectangle Margin="30,73,0,0" Stroke="White" Fill="#FFE8E8E8" Height="4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="224"/>
-        <TextBox x:Name="loginBox" Margin="0,125,0,0"
-                 TextWrapping="Wrap" Height="18" VerticalAlignment="Top" HorizontalAlignment="Center" 
-                 Width="264" BorderBrush="Transparent" BorderThickness="0"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Agency FB"/>
-        <PasswordBox x:Name="passwordBox1" HorizontalAlignment="Center" Margin="0,180,0,0" VerticalAlignment="Top" Width="264" BorderBrush="Transparent" BorderThickness="0"/>
-        <PasswordBox x:Name="passwordBox2" HorizontalAlignment="Center" Margin="0,230,0,0" VerticalAlignment="Top" Width="264" BorderBrush="Transparent" BorderThickness="0"/>
-        <Label Content="Password" HorizontalAlignment="Left" Margin="10,154,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Agency FB"/>
-        <Label Content="Re-enter" HorizontalAlignment="Left" Margin="10,204,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Agency FB"/>
-        <Rectangle Margin="0,143,0,0" Stroke="White" Fill="#FFE8E8E8" Height="4" VerticalAlignment="Top" HorizontalAlignment="Center" Width="264"/>
-        <Rectangle Margin="0,195,0,0" Stroke="White" Fill="#FFE8E8E8" Height="4" VerticalAlignment="Top" HorizontalAlignment="Center" Width="264"/>
-        <Rectangle Stroke="White" Fill="#FFE8E8E8" Height="4" VerticalAlignment="Top" HorizontalAlignment="Center" Width="264" Margin="0,244,0,0"/>
+        <TextBox x:Name="loginBox" Margin="0,125,0,0" TextWrapping="Wrap" Height="18" VerticalAlignment="Top" HorizontalAlignment="Center" Width="264"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="10,94,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <PasswordBox x:Name="passwordBox1" HorizontalAlignment="Center" Margin="0,169,0,0" VerticalAlignment="Top" Width="264"/>
+        <PasswordBox x:Name="passwordBox2" HorizontalAlignment="Center" Margin="0,213,0,0" VerticalAlignment="Top" Width="264"/>
+        <Label Content="Password" HorizontalAlignment="Left" Margin="10,143,0,0" VerticalAlignment="Top" FontSize="16"/>
+        <Label Content="Re-enter" HorizontalAlignment="Left" Margin="10,187,0,0" VerticalAlignment="Top" FontSize="16"/>
     </Grid>
 </Page>
