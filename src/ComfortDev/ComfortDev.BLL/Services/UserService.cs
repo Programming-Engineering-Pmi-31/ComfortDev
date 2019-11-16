@@ -8,6 +8,7 @@ using System.Linq;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using ComfortDev.Common;
+using ComfortDev.Common.Exceptions;
 using EmailValidation;
 
 namespace ComfortDev.BLL.Services
@@ -21,25 +22,25 @@ namespace ComfortDev.BLL.Services
         }
         public UserService(): this(new ComfortDevUnitOfWork()) { }
 
-        public int Authenticate(string username, string password)
+        public int Authenticate(string email, string password)
         {
-            if (string.IsNullOrEmpty(username))
+            if (string.IsNullOrEmpty(email))
             {
-                throw new Exception("Username is empty.");
+                throw new ArgumentException("Email is empty.");
             }
             else if (string.IsNullOrEmpty(password))
             {
-                throw new Exception("Password is empty.");
+                throw new ArgumentException("Password is empty.");
             }
 
-            var user = database.Users.Find(user => user.Name == username).SingleOrDefault();
+            var user = database.Users.Find(user => user.Name == email).SingleOrDefault();
             if (user == null)
             {
-                throw new Exception("User with current name does not exist.");
+                throw new EmailException("User with current email does not exist.");
             }
             else if (!VerifyHash(password, user.Hash))
             {
-                throw new Exception("Invalid password.");
+                throw new PasswordException("Invalid password.");
             }
 
             return user.Id;
@@ -69,14 +70,9 @@ namespace ComfortDev.BLL.Services
 
         private byte[] CreateHash(string password)
         {
-            if (password == null)
-            {
-                throw new ArgumentNullException("password");
-            }
-
             if (string.IsNullOrWhiteSpace(password))
             {
-                throw new ArgumentException("Value cannot be empty or whitespace only string.", "password");
+                throw new ArgumentException("Value cannot be empty, null or whitespace only string.", "password");
             }
 
             string key = Secrets.MD5Key;
@@ -92,13 +88,9 @@ namespace ComfortDev.BLL.Services
 
         private bool VerifyHash(string password, string storedHash)
         {
-            if (password == null)
-            {
-                throw new ArgumentNullException("password");
-            }
             if (string.IsNullOrWhiteSpace(password))
             {
-                throw new ArgumentException("Value cannot be empty or whitespace only string.", "password");
+                throw new ArgumentException("Value cannot be empty, null or whitespace only string.", "password");
             }
 
             byte[] key = HashConverter.PlainTextToBytes(Secrets.MD5Key);
@@ -113,25 +105,25 @@ namespace ComfortDev.BLL.Services
         {
             if (string.IsNullOrWhiteSpace(password))
             {
-                throw new Exception("Password is required.");
+                throw new ValidationException("Password is required.");
             }
             else if (password.Length < 8)
             {
-                throw new Exception("Password must be a minimum of 8 characters in length.");
+                throw new ValidationException("Password must be a minimum of 8 characters in length.");
             }
             else if (password.Length > 20)
             {
-                throw new Exception("Password can be a maximum of 20 characters in length.");
+                throw new ValidationException("Password can be a maximum of 20 characters in length.");
             }
 
             if (!(password.Count(x => char.IsLetter(x)) > 0))
             {
-                throw new Exception("Password must have at least one letter.");
+                throw new ValidationException("Password must have at least one letter.");
             }
 
             if (!(password.Count(x => char.IsDigit(x)) > 0))
             {
-                throw new Exception("Password must have at least one digit.");
+                throw new ValidationException("Password must have at least one digit.");
             }
         }
 
@@ -139,19 +131,19 @@ namespace ComfortDev.BLL.Services
         {
             if (database.Users.Find(user => user.Name == email).Count() > 0)
             {
-                throw new Exception("Email \"" + email + "\" is already taken.");
+                throw new ValidationException("Email \"" + email + "\" is already taken.");
             }
             else if (string.IsNullOrWhiteSpace(email))
             {
-                throw new Exception("Email is required.");
+                throw new ValidationException("Email is required.");
             }
             else if (email.Length > 50)
             {
-                throw new Exception("Email can be a maximum of 50 characters in length.");
+                throw new ValidationException("Email can be a maximum of 50 characters in length.");
             }
             else if (!EmailValidator.Validate(email))
             {
-                throw new Exception("Incorrect email.");
+                throw new ValidationException("Incorrect email.");
             }
         }
 
