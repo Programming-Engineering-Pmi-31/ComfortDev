@@ -8,6 +8,7 @@ using System.Linq;
 using Microsoft.Extensions.Configuration;
 using System.IO;
 using ComfortDev.Common;
+using EmailValidation;
 
 namespace ComfortDev.BLL.Services
 {
@@ -44,12 +45,12 @@ namespace ComfortDev.BLL.Services
             return user.Id;
         }
 
-        public void Create(string username, string password)
+        public void Create(string email, string password)
         {
-            ValidateUsername(username);
+            ValidateEmail(email);
             ValidatePassword(password);
 
-            var user = new User { Name = username };
+            var user = new User { Name = email };
             user.Hash = HashConverter.ToString(CreateHash(password));
 
             database.Users.Create(user);
@@ -134,31 +135,23 @@ namespace ComfortDev.BLL.Services
             }
         }
 
-        private void ValidateUsername(string username)
+        private void ValidateEmail(string email)
         {
-            if (database.Users.Find(user => user.Name == username).Count() > 0)
+            if (database.Users.Find(user => user.Name == email).Count() > 0)
             {
-                throw new Exception("Username \"" + username + "\" is already taken.");
+                throw new Exception("Email \"" + email + "\" is already taken.");
             }
-            else if (string.IsNullOrWhiteSpace(username))
+            else if (string.IsNullOrWhiteSpace(email))
             {
-                throw new Exception("Username is required.");
+                throw new Exception("Email is required.");
             }
-            else if (username.Length < 3)
+            else if (email.Length > 50)
             {
-                throw new Exception("Username must be a minimum of 3 characters in length.");
+                throw new Exception("Email can be a maximum of 50 characters in length.");
             }
-            else if (username.Length > 15)
+            else if (!EmailValidator.Validate(email))
             {
-                throw new Exception("Username can be a maximum of 15 characters in length.");
-            }
-            else if (username.Count(x => char.IsDigit(x) || char.IsLetter(x)) < username.Length)
-            {
-                throw new Exception("Username must consist only of letters and numbers.");
-            }
-            else if (username.Count(x => char.IsDigit(x)) == username.Length)
-            {
-                throw new Exception("Username cannot consist of digits only.");
+                throw new Exception("Incorrect email.");
             }
         }
 
