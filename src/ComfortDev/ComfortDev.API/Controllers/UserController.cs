@@ -13,7 +13,6 @@ using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
 using ComfortDev.Common.Entities;
 using ComfortDev.Common;
-using ComfortDev.BLL.DTO;
 
 namespace ComfortDev.API.Controllers
 {
@@ -31,11 +30,11 @@ namespace ComfortDev.API.Controllers
 
         [AllowAnonymous]
         [HttpPost("authenticate")]
-        public IActionResult Authenticate(UserInfo userInfo)
+        public IActionResult Authenticate(string username, string password)
         {
             try 
             {
-                var userId = userService.Authenticate(userInfo.Username, userInfo.Password);
+                var userId = userService.Authenticate(username, password);
 
                 var tokenHandler = new JwtSecurityTokenHandler();
                 string key = Secrets.JwtKey;
@@ -63,11 +62,11 @@ namespace ComfortDev.API.Controllers
 
         [AllowAnonymous]
         [HttpPost("register")]
-        public IActionResult Register(UserInfo userInfo)
+        public IActionResult Register(string username, string password)
         {
             try
             {
-                userService.Create(userInfo.Username, userInfo.Password);
+                userService.Create(username, password);
                 return Ok();
             }
             catch (Exception ex)

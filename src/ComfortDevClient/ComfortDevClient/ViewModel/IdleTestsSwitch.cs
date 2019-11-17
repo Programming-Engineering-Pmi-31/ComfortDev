@@ -1,18 +1,21 @@
-﻿using System.Windows.Controls;
+﻿using GalaSoft.MvvmLight;
+using System;
+using System.Collections.Generic;
+using System.Text;
+using System.Windows.Controls;
+using ComfortDevClient.Pages;
+using ComfortDevClient.ViewModel;
 using System.Windows.Input;
+using GalaSoft.MvvmLight.Command;
 using System.Threading.Tasks;
 using System.Threading;
-using GalaSoft.MvvmLight;
-using GalaSoft.MvvmLight.Command;
-using ComfortDevClient.Pages;
 
 namespace ComfortDevClient.ViewModel
 {
-
-    class MainViewModel : ViewModelBase
+    class IdleTestsSwitch : ViewModelBase
     {
-        private Page Log;
-        private Page Regist;
+        private Page idlePage;
+        private Page testsPage;
 
         private Page _currentPage;
         public Page CurrentPage
@@ -35,24 +38,32 @@ namespace ComfortDevClient.ViewModel
                 RaisePropertyChanged(() => FrameOpasity);
             }
         }
-        public MainViewModel()
-        {
-            Log = new Pages.Login();
-            Regist = new Pages.Registration();
 
-            CurrentPage = Log;
+        public bool TestDone;
+        public IdleTestsSwitch()
+        {
+            testsPage = new TestsPage();
+            idlePage = new IdlePage();
+            
             FrameOpasity = 1;
+            
+            TestDone = false;
+            if (!TestDone)
+                CurrentPage = testsPage;
+            else
+                CurrentPage = idlePage;
         }
-        public ICommand bToRegistr
+
+        public ICommand SwitchCommand
         {
             get { return new RelayCommand(() => {
-                if (CurrentPage == Log) { SlowOpasity(Regist); }
-                else if (CurrentPage == Regist) { SlowOpasity(Log); }
+                if (CurrentPage == testsPage) SlowOpasity(idlePage);
+                else if (CurrentPage == idlePage) SlowOpasity(testsPage);
             }); }
         }
-        public ICommand bToLogin
+        public ICommand ToIdlePage
         {
-            get { return new RelayCommand(() => SlowOpasity(Log)); }
+            get { return new RelayCommand(() => SlowOpasity(idlePage)); }
         }
 
         public async void SlowOpasity(Page page)
@@ -62,15 +73,16 @@ namespace ComfortDevClient.ViewModel
                 for (double i = 1.0; i > 0.0; i -= 0.1)
                 {
                     FrameOpasity = i;
-                    Thread.Sleep(50);
+                    Thread.Sleep(25);
                 }
                 CurrentPage = page;
                 for (double i = 0.0; i < 1.1; i += 0.1)
                 {
                     FrameOpasity = i;
-                    Thread.Sleep(50);
+                    Thread.Sleep(25);
                 }
             });
         }
+
     }
 }
