@@ -8,5 +8,7 @@ namespace ComfortDev.BLL.Interfaces
     public interface IUserCoursesService
     {
         UserCourse CreateCourse(int userId, int topicId, int nTasks, int durationDays);
+        UserCourse GetActiveCourse(int userId);
+        void SetTaskCompletionPercent(int courseTaskId, int completionPercent);
     }
 }

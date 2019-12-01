@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ComfortDev.BLL.DTO;
 using ComfortDev.BLL.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -14,11 +15,11 @@ namespace ComfortDev.API.Controllers
     [ApiController]
     public class UserCoursesController : ControllerBase
     {
-        private readonly UserCoursesService userService;
+        private readonly UserCoursesService userCoursesService;
 
         public UserCoursesController()
         {
-            userService = new UserCoursesService();
+            userCoursesService = new UserCoursesService();
         }
 
         [HttpPost("create")]
@@ -27,8 +28,39 @@ namespace ComfortDev.API.Controllers
             try
             {
                 int userId = int.Parse(User.Identity.Name);
-                var createdCourse = userService.CreateCourse(userId, topicId, 3, 5);
+                var createdCourse = userCoursesService.CreateCourse(userId, topicId, 3, 5);
                 return Ok(createdCourse);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpGet("active")]
+        public IActionResult GetActiveCourse()
+        {
+            try
+            {
+                int userId = int.Parse(User.Identity.Name);
+                var activeCourse = userCoursesService.GetActiveCourse(userId);
+
+                // revision required
+                return Ok(new { courseTasks = activeCourse.CourseTasks, endDate = activeCourse.EndDate });
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(new { message = ex.Message });
+            }
+        }
+
+        [HttpPost("setTaskCompPer")]
+        public IActionResult SetTaskCompletionPercent(CourseTaskInfo courseTaskInfo)
+        {
+            try
+            {
+                userCoursesService.SetTaskCompletionPercent(courseTaskInfo.Id, courseTaskInfo.CompletionPercent);
+                return Ok();
             }
             catch (Exception ex)
             {

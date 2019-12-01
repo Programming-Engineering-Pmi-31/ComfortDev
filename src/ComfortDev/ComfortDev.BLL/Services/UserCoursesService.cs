@@ -50,5 +50,27 @@ namespace ComfortDev.BLL.Services
 
             return newUserCourse;
         }
+
+        public UserCourse GetActiveCourse(int userId)
+        {
+            return database.UserCourses
+                .Find(course => course.UserId == userId && course.EndDate > DateTime.Now)
+                .FirstOrDefault();
+        }
+
+        public void SetTaskCompletionPercent(int courseTaskId, int completionPercent)
+        {
+            var courseTask = database.CourseTasks.Get(courseTaskId);
+            if (courseTask != null)
+            {
+                courseTask.CompPer = completionPercent;
+                database.CourseTasks.Update(courseTask);
+                database.Save();
+            }
+            else
+            {
+                throw new ArgumentException($"CourseTask with id: {courseTaskId} is not exist.");
+            }
+        }
     }
 }
