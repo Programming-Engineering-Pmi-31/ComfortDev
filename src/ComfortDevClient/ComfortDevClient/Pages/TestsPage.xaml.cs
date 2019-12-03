@@ -17,6 +17,7 @@ using ComfortDevClient.Pages;
 using GalaSoft.MvvmLight.Command;
 using System.Threading.Tasks;
 using System.Threading;
+using Logic;
 
 namespace ComfortDevClient.Pages
 {
@@ -27,7 +28,32 @@ namespace ComfortDevClient.Pages
     {
         public TestsPage()
         {
-            InitializeComponent();
+            InitializeComponent();            
+            Working();
+        }
+
+        private async void Working()
+        {
+            //var questions = await Actions.GetTestQuestions();
+
+            //foreach (var quest in questions.GetEnumerator().Current.QuestionText)
+            //    foreach (var i in questions.GetEnumerator().Current.Answers)
+            //    {
+            //        blockOfAnswers.Children.Add(new RadioButton { Content = i.AnswerText });
+            //    }
+
+
+
+        }
+
+        private void Next_button_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void Previous_button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

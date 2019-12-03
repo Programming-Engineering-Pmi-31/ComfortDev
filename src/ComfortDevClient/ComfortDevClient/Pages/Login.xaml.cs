@@ -29,10 +29,9 @@ namespace ComfortDevClient.Pages
 
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            // for test
             IdleWindow wind = new IdleWindow();
-            wind.Show();
-            // end for test
+            wind.Show();                             /// DELETE THIS
+
             if (loginBox.Text.Length < 4 || passwordBox.Password.Length <= 8)
             {
                 MessageBox.Show("Your login or password is wrong!");
@@ -41,9 +40,8 @@ namespace ComfortDevClient.Pages
             {
                 var response = await Actions.AuthenticateUser(loginBox.Text, passwordBox.Password);
                 if (response.StatusCode == HttpStatusCode.OK)
-                {
-                    MessageBox.Show("Welcome");
-                    
+                {   
+                    wind.Show();
                 }
                 else
                 {
