@@ -22,12 +22,21 @@ namespace Logic
         private const string API_ADDRESS = "http://localhost:31415";
         private static string token = null;
 
-        public static async Task<ActionResult> RegisterUser(string username, string password)
+        /// <summary>
+        /// Method for user registration.
+        /// <para>If registration successful returns <see cref="ActionResult"/> object 
+        /// with <see cref="ActionResult.StatusCode"/>: <see cref="HttpStatusCode.OK"/>.</para>
+        /// Otherwise returns <see cref="ActionResult"/> object with error code and message.
+        /// </summary>
+        /// <param name="email">User email.</param>
+        /// <param name="password">User password.</param>
+        /// <returns><see cref="ActionResult"/></returns>
+        public static async Task<ActionResult> RegisterUser(string email, string password)
         {
             try
             {
                 using var client = new HttpClient();
-                var json = JsonConvert.SerializeObject(new { username, password });
+                var json = JsonConvert.SerializeObject(new { email, password });
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
 
                 var url = API_ADDRESS + "/api/user/register";
@@ -49,12 +58,21 @@ namespace Logic
             }
         }
 
-        public static async Task<ActionResult> AuthenticateUser(string username, string password)
+        /// <summary>
+        /// Method for user authentication.
+        /// <para>If authentication successful returns <see cref="ActionResult"/> object 
+        /// with <see cref="ActionResult.StatusCode"/>: <see cref="HttpStatusCode.OK"/>.</para>
+        /// Otherwise returns <see cref="ActionResult"/> object with error code and message.
+        /// </summary>
+        /// <param name="email">User email.</param>
+        /// <param name="password">User password.</param>
+        /// <returns></returns>
+        public static async Task<ActionResult> AuthenticateUser(string email, string password)
         {
             try
             {
                 using var client = new HttpClient();
-                var json = JsonConvert.SerializeObject(new { username, password });
+                var json = JsonConvert.SerializeObject(new { email, password });
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
 
                 var url = API_ADDRESS + "/api/user/authenticate";
@@ -82,6 +100,10 @@ namespace Logic
             }
         }
 
+        /// <summary>
+        /// Method for getting test questions.
+        /// </summary>
+        /// <returns>Collection of questions</returns>
         public static async Task<IEnumerable<Question>> GetTestQuestions()
         {
             try
@@ -99,6 +121,10 @@ namespace Logic
             }
         }
 
+        /// <summary>
+        /// Method for getting topics.
+        /// </summary>
+        /// <returns>Collection of topics</returns>
         public static async Task<IEnumerable<Topic>> GetTopics()
         {
             try
@@ -116,6 +142,12 @@ namespace Logic
             }
         }
 
+        /// <summary>
+        /// Method that creates course for current user by <paramref name="topicId"/>.
+        /// If user already has active course, returns null.
+        /// </summary>
+        /// <param name="topicId">ID of the desired topic.</param>
+        /// <returns>Created course</returns>
         public static async Task<UserCourse> CreateUserCourse(int topicId)
         {
             if (token == null)
