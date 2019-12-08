@@ -35,7 +35,7 @@ namespace ComfortDev.API.Controllers
         {
             try 
             {
-                var userId = userService.Authenticate(userInfo.Username, userInfo.Password);
+                var userId = userService.Authenticate(userInfo.Email, userInfo.Password);
 
                 var tokenHandler = new JwtSecurityTokenHandler();
                 string key = Secrets.JwtKey;
@@ -67,7 +67,7 @@ namespace ComfortDev.API.Controllers
         {
             try
             {
-                userService.Create(userInfo.Username, userInfo.Password);
+                userService.Create(userInfo.Email, userInfo.Password);
                 return Ok();
             }
             catch (Exception ex)
