@@ -20,14 +20,11 @@
             <Button Margin="10,0,0,0" Width="100" x:Name="Next_button" Content="Next" BorderBrush="Transparent"
                 BorderThickness="0" Background="#FF96FF4D" FontFamily="Agency FB" FontSize="18" Click="Next_button_Click"/>
         </StackPanel>
-        <TextBlock x:Name="numericalQuestions" 
-                   Text="Questions     ---------------------------------------------------------------------------------" 
-                   TextWrapping="Wrap" FontSize="18" FontFamily="Agency FB" Margin="137,170,137,250" TextAlignment="Center"/>
-        
+
         <TextBlock x:Name="question" HorizontalAlignment="Center" Margin="0,200,0,0" 
-                   Text="QUEST" TextWrapping="Wrap" VerticalAlignment="Top" Width="604" Height="53"/>
+                   TextWrapping="Wrap" VerticalAlignment="Top" Width="604" Height="53"/>
         <Button x:Name="SkipButton" Content="Skip" Margin="558,396,137,29" BorderBrush="Transparent"
-                BorderThickness="0" Background="#FF96FF4D" FontFamily="Agency FB" FontSize="18"
+                BorderThickness="0" Background="#FF96FF4D" FontFamily="Agency FB" FontSize="18" Click="SkipButton_Click"
                 />
         <StackPanel x:Name="blockOfAnswers" Margin="98,258,98,59"/>
     </Grid>
