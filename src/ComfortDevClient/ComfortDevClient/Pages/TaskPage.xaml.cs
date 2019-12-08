@@ -10,26 +10,20 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using ComfortDevClient.ViewModel;
 
 namespace ComfortDevClient.Pages
 {
     /// <summary>
-    /// Interaction logic for IdlePage.xaml
+    /// Interaction logic for TaskPage.xaml
     /// </summary>
-    public partial class IdlePage : Page
+    public partial class TaskPage : Page
     {
-        public IdlePage()
+        public TaskPage()
         {
             InitializeComponent();
         }
 
-        private void NotPayedBlock(object sender, RoutedEventArgs e)
-        {
-            MessageBox.Show("You have not payed for this block!");
-        }
-
-        private void toTestAgain_Click(object sender, RoutedEventArgs e)
+        private void backToIdlePageButton_Click(object sender, RoutedEventArgs e)
         {
 
         }

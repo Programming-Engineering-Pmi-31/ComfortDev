@@ -9,7 +9,40 @@
       Title="IdlePage">
 
     <Grid Background="White">
-        <TextBlock x:Name="textBlock" Margin="10,99,662,294" Text="Recomend" TextWrapping="Wrap" FontSize="36" FontFamily="Agency FB"/>
-        <StackPanel Margin="143,99,400,294" Background="Bisque"/>
+
+        <StackPanel Margin="144,80,144,225" Orientation="Horizontal">
+            <Button x:Name="task1" Height="96" Width="150" Margin="10,10,10,10">
+                <ProgressBar Height="13" Width="130" Minimum="0" Maximum="100" Value="65" Margin="0,50,0,0"></ProgressBar>
+            </Button>
+            <Button x:Name="task2" Height="96" Width="150" Margin="10,10,10,10" Click="NotPayedBlock">
+                <ProgressBar Height="13" Width="130" Minimum="0" Maximum="100" Value="0" Margin="0,50,0,0"></ProgressBar>
+            </Button>
+            <Button x:Name="task3" Height="96" Width="150" Margin="10,10,10,10" Click="NotPayedBlock">
+                <ProgressBar Height="13" Width="130" Minimum="0" Maximum="100" Value="0" Margin="0,50,0,0"></ProgressBar>
+            </Button>
+        </StackPanel>
+
+
+        <StackPanel Margin="144,225,144,80" Orientation="Horizontal">
+            <Button x:Name="task4" Height="96" Width="150" Margin="10,10,10,10" Click="NotPayedBlock"
+                    HorizontalAlignment="Left" VerticalAlignment="Center">
+                <ProgressBar Height="13" Width="130" Minimum="0" Maximum="100" Value="0" Margin="0,50,0,0"></ProgressBar>
+            </Button>
+            <Button x:Name="task5" Height="96" Width="150" Margin="10,10,10,10" Click="NotPayedBlock"
+                    HorizontalAlignment="Center" VerticalAlignment="Center">
+                <ProgressBar Height="13" Width="130" Minimum="0" Maximum="100" Value="0" Margin="0,50,0,0"></ProgressBar>
+            </Button>
+            <Button x:Name="task6" Height="96" Width="150" Margin="10,10,10,10" Click="NotPayedBlock"
+                    HorizontalAlignment="Right" VerticalAlignment="Center">
+                <ProgressBar Height="13" Width="130" Minimum="0" Maximum="100" Value="0" Margin="0,50,0,0"></ProgressBar>
+            </Button>
+        </StackPanel>
+        <Button x:Name="toTestAgain" Content="To test again" HorizontalAlignment="Left" Margin="10,410,0,0" VerticalAlignment="Top" Height="30" Width="124" FontFamily="Cambria"
+                BorderBrush="Transparent" BorderThickness="0" Background="#FF96FF4D" FontSize="18" Click="toTestAgain_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
+            </Button.Effect>
+        </Button>
+
     </Grid>
 </Page>

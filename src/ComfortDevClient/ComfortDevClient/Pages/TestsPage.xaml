@@ -9,27 +9,34 @@
       Title="TestsPage">
 
     <Grid Background="White">
-        <TextBlock x:Name="textBlock" Margin="98,88,98,280" 
+        <TextBlock x:Name="textBlock" Margin="98,93,98,307" 
                    Text="Let`s answer some questions, it helps the program to choose which topic fits you best. You will find out the result in the window of topics. It will be ranked first in the list." 
-                   TextWrapping="Wrap" FontSize="22" FontFamily="Agency FB" TextAlignment="Center"/>
-        <TextBlock x:Name="textBlock1" Margin="266,27,266,362" Text="Your advisor" TextWrapping="Wrap" FontFamily="Agency FB" FontSize="48" TextAlignment="Center"/>
+                   TextWrapping="Wrap" FontSize="16" FontFamily="Cambria" TextAlignment="Left"/>
+        <TextBlock x:Name="textBlock1" Margin="266,27,266,362" Text="Your advisor" TextWrapping="Wrap" FontFamily="Cambria" FontSize="48" TextAlignment="Center"/>
 
-        <StackPanel Margin="190,396,400,29" Orientation="Horizontal">
-            <Button Margin="0,0,0,0" Width="100" x:Name="Previous_button" Content="Previous" BorderBrush="Transparent"
-                BorderThickness="0" Background="#FF96FF4D" FontFamily="Agency FB" FontSize="18"/>
-            <Button Margin="10,0,0,0" Width="100" x:Name="Next_button" Content="Next" BorderBrush="Transparent"
-                BorderThickness="0" Background="#FF96FF4D" FontFamily="Agency FB" FontSize="18"/>
-        </StackPanel>
-        <TextBlock x:Name="textBlock2" 
-                   Text="Questions ?/? ---------------------------------------------------------------------------------" 
-                   TextWrapping="Wrap" FontSize="18" FontFamily="Agency FB" Margin="137,170,137,250" TextAlignment="Center"/>
-        <Grid x:Name="StakTests" Margin="98,253,98,59">
+        <StackPanel Margin="190,396,400,29" Orientation="Horizontal"/>
 
-        </Grid>
-        <TextBlock x:Name="TextTest" HorizontalAlignment="Center" Margin="0,200,0,0" 
-                   Text="QUEST" TextWrapping="Wrap" VerticalAlignment="Top" Width="604" Height="53"/>
-        <Button x:Name="SkipButton" Content="Skip" Margin="558,396,137,29" BorderBrush="Transparent"
-                BorderThickness="0" Background="#FF96FF4D" FontFamily="Agency FB" FontSize="18"
-                />
+        <TextBlock x:Name="question" HorizontalAlignment="Center" Margin="0,212,0,0" 
+                   TextWrapping="Wrap" VerticalAlignment="Top" Width="604" Height="53"/>
+        <Button x:Name="SkipButton" Content="Skip" Margin="617,153,78,272" BorderBrush="Transparent"
+                BorderThickness="0" Background="#FF96FF4D" FontFamily="Cambria" FontSize="18" Click="SkipButton_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
+            </Button.Effect>
+        </Button>
+
+        <StackPanel x:Name="blockOfAnswers" Margin="98,258,98,59"/>
+        <Button Margin="622,391,78,34" x:Name="Next_button" Content="Next" BorderBrush="Transparent"
+                BorderThickness="0" Background="#FF96FF4D" FontFamily="Cambria" FontSize="18" Click="Next_button_Click">
+            <Button.Effect>
+                <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
+            </Button.Effect>
+        </Button>
+        <Button x:Name="Previous_button" Content="Previous" BorderBrush="Transparent"
+                BorderThickness="0" Background="#FF96FF4D" FontFamily="Cambria" FontSize="18" Click="Previous_button_Click" Margin="98,390,602,34">
+            <Button.Effect>
+                <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
+            </Button.Effect>
+        </Button>
     </Grid>
 </Page>
