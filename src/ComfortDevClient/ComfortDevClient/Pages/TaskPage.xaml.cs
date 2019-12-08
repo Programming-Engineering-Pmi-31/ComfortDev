@@ -22,5 +22,10 @@ namespace ComfortDevClient.Pages
         {
             InitializeComponent();
         }
+
+        private void backToIdlePageButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -10,21 +10,21 @@
 
     <Grid>
         <PasswordBox x:Name="passwordBox" Margin="0,191,0,0" HorizontalAlignment="Center" Width="264" Height="18" VerticalAlignment="Top" BorderBrush="Transparent" BorderThickness="0"/>
-        <Label Content="Password" Margin="10,166,0,0" FontSize="16" HorizontalAlignment="Left" Width="99" Height="31" VerticalAlignment="Top" FontFamily="Agency FB"/>
+        <Label Content="Password" Margin="10,166,0,0" FontSize="16" HorizontalAlignment="Left" Width="99" Height="31" VerticalAlignment="Top" FontFamily="Cambria"/>
         <TextBox x:Name="loginBox" Margin="0,132,0,0" TextWrapping="Wrap" Height="18" VerticalAlignment="Top" HorizontalAlignment="Center" Width="264" BorderBrush="Transparent" BorderThickness="0"/>
-        <Label Content="Username" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Agency FB"/>
+        <Label Content="Username" HorizontalAlignment="Left" Margin="10,106,0,0" VerticalAlignment="Top" FontSize="16" FontFamily="Cambria"/>
         <Rectangle Margin="30,73,0,0" Stroke="White" Fill="#FFE8E8E8" Height="4" VerticalAlignment="Top" HorizontalAlignment="Left" Width="224"/>
-        <Label Content="Login" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Agency FB" Height="49"/>
+        <Label Content="Login" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Cambria" Height="49"/>
         <Button 
             Content="Submit" HorizontalAlignment="Center" Margin="0,291,0,0" 
             VerticalAlignment="Top" Height="32" Width="144" Background="#FFBCD600"
-            BorderBrush="Transparent" FontFamily="Agency FB" FontSize="18"
+            BorderBrush="Transparent" FontFamily="Cambria" FontSize="18"
             BorderThickness="0" Click="Button_Click">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>
         </Button>
-        <CheckBox Content="Remember Me" HorizontalAlignment="Center" Margin="0,328,0,0" VerticalAlignment="Top" FontFamily="Agency FB"/>
+        <CheckBox Content="Remember Me" HorizontalAlignment="Center" Margin="0,328,0,0" VerticalAlignment="Top" FontFamily="Cambria"/>
         <Rectangle Margin="0,150,0,0" Stroke="White" Fill="#FFE8E8E8" Height="4" VerticalAlignment="Top" HorizontalAlignment="Center" Width="264"/>
         <Rectangle Margin="0,209,0,0" Stroke="White" Fill="#FFE8E8E8" Height="4" VerticalAlignment="Top" HorizontalAlignment="Center" Width="264"/>
 

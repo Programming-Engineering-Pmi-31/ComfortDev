@@ -28,5 +28,10 @@ namespace ComfortDevClient.Pages
         {
             MessageBox.Show("You have not payed for this block!");
         }
+
+        private void toTestAgain_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
