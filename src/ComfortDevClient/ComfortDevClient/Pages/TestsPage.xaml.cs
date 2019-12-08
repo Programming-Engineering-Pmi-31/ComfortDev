@@ -26,34 +26,130 @@ namespace ComfortDevClient.Pages
     /// </summary>
     public partial class TestsPage : Page
     {
+        private Test test;
+
         public TestsPage()
         {
             InitializeComponent();            
-            Working();
+            GetTest();
         }
 
-        private async void Working()
+        private async void GetTest()
         {
-            //var questions = await Actions.GetTestQuestions();
-
-            //foreach (var quest in questions.GetEnumerator().Current.QuestionText)
-            //    foreach (var i in questions.GetEnumerator().Current.Answers)
-            //    {
-            //        blockOfAnswers.Children.Add(new RadioButton { Content = i.AnswerText });
-            //    }
-
-
-
+            IEnumerable<Question> questions = await Actions.GetTestQuestions();
+            if (questions != null)
+            {
+                test = new Test(new List<Question>(questions));
+                test.ShowQuestion(this);
+            }
         }
 
         private void Next_button_Click(object sender, RoutedEventArgs e)
         {
-            
+
+            test?.NextQuestion();
+            test?.ShowQuestion(this);
         }
 
         private void Previous_button_Click(object sender, RoutedEventArgs e)
         {
+            test?.PreviousQuestion();
+            test?.ShowQuestion(this);
+        }
 
+        private void SkipButton_Click(object sender, RoutedEventArgs e)
+        {
+            var result = test?.GetResult();
+        }
+    }
+
+    class Test
+    {
+        private List<string> questions;
+        private List<List<KeyValuePair<RadioButton, Answer>>> answers;
+        private int currentQuestionIndex;
+
+        public Test(List<Question> questions)
+        {
+            this.questions = new List<string>();
+            questions.ForEach(quest => this.questions.Add(quest.QuestionText));
+
+            this.answers = new List<List<KeyValuePair<RadioButton, Answer>>>();
+            foreach (var question in questions)
+            {
+                var groupAnswers = new List<KeyValuePair<RadioButton, Answer>>();
+                foreach (var answer in question.Answers)
+                {
+                    groupAnswers.Add(
+                        new KeyValuePair<RadioButton, Answer>(
+                            new RadioButton { Content = answer.AnswerText }, answer));
+                }
+                answers.Add(groupAnswers);
+            }
+
+            currentQuestionIndex = 0;
+        }
+
+        public bool IsFirstQuestion()
+        {
+            return currentQuestionIndex == 0;
+        }
+
+        public bool IsLastQuestion()
+        {
+            return currentQuestionIndex == questions.Count - 1;
+        }
+
+        public void NextQuestion()
+        {
+            if (!this.IsLastQuestion())
+            {
+                currentQuestionIndex++; 
+            }
+        }
+
+        public void PreviousQuestion()
+        {
+            if (!this.IsFirstQuestion())
+            {
+                currentQuestionIndex--;
+            }
+        }
+
+        public void ShowQuestion(TestsPage testPage)
+        {
+            testPage.question.Text = questions[currentQuestionIndex];
+
+            testPage.blockOfAnswers.Children.Clear();
+            foreach (var pair in answers[currentQuestionIndex])
+            {
+                testPage.blockOfAnswers.Children.Add(pair.Key);
+            }
+        }
+
+        public Dictionary<int, int> GetResult()
+        {
+            var result = new Dictionary<int, int>();
+
+            foreach (var answerGroup in answers)
+            {
+                foreach (var pair in answerGroup)
+                {
+                    if (pair.Key.IsChecked.Value)
+                    {
+                        if (!result.ContainsKey(pair.Value.Topic.Id))
+                        {
+                            result[pair.Value.Topic.Id] = 1;
+                        }
+                        else
+                        {
+                            result[pair.Value.Topic.Id]++;
+                        }
+                    }
+                }
+            }
+
+            return result;
         }
     }
 }
