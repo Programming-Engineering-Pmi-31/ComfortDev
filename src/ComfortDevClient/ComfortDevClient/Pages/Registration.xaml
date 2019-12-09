@@ -7,10 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="453" d:DesignWidth="284"
       Title="Registration">
-    <Grid>
-        <Grid.Background>
-            <ImageBrush ImageSource="\img\register-background.jpg"/>
-        </Grid.Background>
+    <Grid Background="White">
         <Label Content="Registration" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Cambria"/>
         <Button 
             BorderBrush="Transparent"
