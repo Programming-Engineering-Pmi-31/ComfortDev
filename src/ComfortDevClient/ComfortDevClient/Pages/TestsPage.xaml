@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\HP\Desktop\ComfortDev1\src\ComfortDevClient\ComfortDevClient\img\testing-background2.jpg" Stretch="UniformToFill"/>
+            <ImageBrush ImageSource="\img\testing-background2.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
         
         <TextBlock x:Name="textBlock" Margin="98,134,98,266" 

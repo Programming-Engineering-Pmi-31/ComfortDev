@@ -9,7 +9,7 @@
       Title="Registration">
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\HP\Desktop\ComfortDev\src\ComfortDevClient\ComfortDevClient\img\register-background.jpg"/>
+            <ImageBrush ImageSource="\img\register-background.jpg"/>
         </Grid.Background>
         <Label Content="Registration" HorizontalAlignment="Center" Margin="0,28,0,0" VerticalAlignment="Top" FontSize="30" FontFamily="Cambria"/>
         <Button 

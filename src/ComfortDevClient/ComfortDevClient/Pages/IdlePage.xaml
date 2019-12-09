@@ -10,14 +10,16 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\HP\Desktop\ComfortDev1\src\ComfortDevClient\ComfortDevClient\img\topics-background.jpg" Stretch="UniformToFill"/>
+           
+            <ImageBrush ImageSource="\img\topics-background.jpg" Stretch="UniformToFill"/>
         </Grid.Background>
 
         <StackPanel Margin="144,80,144,225" Orientation="Horizontal">
             <Button x:Name="task1" Height="96" Width="130" Margin="20,10,20,10"
                     BorderBrush="Transparent" BorderThickness="0" >
                 <Button.Background>
-                    <ImageBrush ImageSource ="C:\Users\HP\Desktop\ComfortDev1\src\ComfortDevClient\ComfortDevClient\img\topics-leadership.PNG" ></ImageBrush>
+
+                    <ImageBrush ImageSource ="\img\topics-motivation.PNG" ></ImageBrush>
                 </Button.Background>
 
                 <ProgressBar Height="5" Width="110" Minimum="0" Maximum="100" Value="35" Margin="0,70,0,0" Background="#FFE6E6E6" Foreground="#FF96FF4D" IsEnabled="False" RenderTransformOrigin="0.5,0.5">
@@ -43,7 +45,7 @@
             <Button x:Name="task2" Height="96" Width="130" Margin="20,10,20,10" Click="NotPayedBlock"
                     BorderBrush="Transparent" BorderThickness="0" >
                 <Button.Background>
-                    <ImageBrush ImageSource ="C:\Users\HP\Desktop\ComfortDev1\src\ComfortDevClient\ComfortDevClient\img\topics-motivation.PNG" ></ImageBrush>
+                    <ImageBrush ImageSource ="\img\topics-leadership.PNG" ></ImageBrush>
                 </Button.Background>
 
                 <Button.Effect>
@@ -53,7 +55,7 @@
             <Button x:Name="task3" Height="96" Width="130" Margin="20,10,20,10" Click="NotPayedBlock"
                     BorderBrush="Transparent" BorderThickness="0" >
                 <Button.Background>
-                    <ImageBrush ImageSource ="C:\Users\HP\Desktop\ComfortDev1\src\ComfortDevClient\ComfortDevClient\img\topics-productivity.PNG" ></ImageBrush>
+                    <ImageBrush ImageSource ="\img\topics-productivity.PNG" ></ImageBrush>
                 </Button.Background>
                 <Button.Effect>
                     <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
@@ -66,7 +68,7 @@
             <Button x:Name="task4" Height="96" Width="130" Margin="20,10,20,10" Click="NotPayedBlock"
                     BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center">
                 <Button.Background>
-                    <ImageBrush ImageSource ="C:\Users\HP\Desktop\ComfortDev1\src\ComfortDevClient\ComfortDevClient\img\topics-public-speech.PNG" ></ImageBrush>
+                    <ImageBrush ImageSource ="\img\topics-public-speech.PNG" ></ImageBrush>
                 </Button.Background>
                 <Button.Effect>
                     <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
@@ -75,7 +77,7 @@
             <Button x:Name="task5" Height="96" Width="130" Margin="20,10,20,10" Click="NotPayedBlock"
                     BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
                 <Button.Background>
-                    <ImageBrush ImageSource ="C:\Users\HP\Desktop\ComfortDev1\src\ComfortDevClient\ComfortDevClient\img\topics-self-branding.PNG" ></ImageBrush>
+                    <ImageBrush ImageSource ="\img\topics-self-branding.PNG" ></ImageBrush>
                 </Button.Background>
                 <Button.Effect>
                     <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
@@ -84,7 +86,7 @@
             <Button x:Name="task6" Height="96" Width="130" Margin="20,10,20,10" Click="NotPayedBlock"
                     BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Center">
                 <Button.Background>
-                    <ImageBrush ImageSource ="C:\Users\HP\Desktop\ComfortDev1\src\ComfortDevClient\ComfortDevClient\img\topics-team-work.PNG" ></ImageBrush>
+                    <ImageBrush ImageSource ="\img\topics-team-work.PNG" ></ImageBrush>
                 </Button.Background>
                 <Button.Effect>
                     <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>

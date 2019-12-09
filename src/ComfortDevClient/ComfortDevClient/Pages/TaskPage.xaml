@@ -10,7 +10,7 @@
 
     <Grid>
         <Grid.Background>
-            <ImageBrush ImageSource="C:\Users\HP\Desktop\ComfortDev1\src\ComfortDevClient\ComfortDevClient\img\task-background.jpg"/>
+            <ImageBrush ImageSource="\img\task-background.jpg"/>
         </Grid.Background>
         <Button x:Name="backToIdlePageButton" Content="Next" HorizontalAlignment="Left" Margin="560,374,0,0" VerticalAlignment="Top" Height="32" Width="115"
                 BorderBrush="Transparent" BorderThickness="0" Background="#FF96FF4D" FontFamily="Cambria" FontSize="18" Click="backToIdlePageButton_Click">
@@ -21,7 +21,7 @@
         <Button x:Name="starsButton" Content=" " HorizontalAlignment="Left" Margin="684,226,0,0" VerticalAlignment="Top" Width="82"
             BorderBrush="Transparent" BorderThickness="0" FontFamily="Cambria" FontSize="18" Click="starsButton_Click" Height="19">
             <Button.Background>
-                <ImageBrush ImageSource ="C:\Users\HP\Desktop\ComfortDev1\src\ComfortDevClient\ComfortDevClient\img\task-1star.jpg" ></ImageBrush>
+                <ImageBrush ImageSource ="\img\task-1star.jpg" ></ImageBrush>
             </Button.Background>
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
@@ -30,7 +30,7 @@
         <Button x:Name="stars2Button" Content=" " HorizontalAlignment="Left" Margin="684,255,0,0" VerticalAlignment="Top"
                 BorderBrush="Transparent" BorderThickness="0" FontFamily="Cambria" FontSize="18" Click="stars2Button_Click" Height="19" Width="82">
             <Button.Background>
-                <ImageBrush ImageSource ="C:\Users\HP\Desktop\ComfortDev1\src\ComfortDevClient\ComfortDevClient\img\task-2stars.jpg" ></ImageBrush>
+                <ImageBrush ImageSource ="\img\task-2stars.jpg" ></ImageBrush>
             </Button.Background>
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
@@ -39,7 +39,7 @@
         <Button x:Name="stars3Button" Content=" " HorizontalAlignment="Left" Margin="684,283,0,0" VerticalAlignment="Top"
                 BorderBrush="Transparent" BorderThickness="0" FontFamily="Cambria" FontSize="18" Click="stars3Button_Click" Height="19" Width="82">
             <Button.Background>
-                <ImageBrush ImageSource ="C:\Users\HP\Desktop\ComfortDev1\src\ComfortDevClient\ComfortDevClient\img\task-3stars.jpg" ></ImageBrush>
+                <ImageBrush ImageSource ="\img\task-3stars.jpg" ></ImageBrush>
             </Button.Background>
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>

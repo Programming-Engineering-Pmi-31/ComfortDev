@@ -9,7 +9,21 @@
   <ItemGroup>
     <None Remove="img\BackGround1.jpg" />
     <None Remove="img\Register-Window-Background-3.jpg" />
-  
+    <None Remove="img\register-background.jpg" />
+    <None Remove="img\task-1star.jpg" />
+    <None Remove="img\task-2star.jpg" />
+    <None Remove="img\task-2stars.jpg" />
+    <None Remove="img\task-3star.jpg" />
+    <None Remove="img\task-background.jpg" />
+    <None Remove="img\testing-background2.jpg" />
+    <None Remove="img\topics-background.jpg" />
+    <None Remove="img\topics-leadership.PNG" />
+    <None Remove="img\topics-motivation.PNG" />
+    <None Remove="img\topics-productivity.PNG" />
+    <None Remove="img\topics-public-speech.PNG" />
+    <None Remove="img\topics-self-branding.PNG" />
+    <None Remove="img\topics-team-work.PNG" />
+ 
   </ItemGroup>
 
   <ItemGroup>
@@ -27,6 +41,49 @@
     <Resource Include="img\Register-Window-Background-3.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="img\register-background.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+      <Resource Include="img\task-1star.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+      <Resource Include="img\task-2stars.jpg">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+     <Resource Include="img\task-3stars.jpg">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+    <Resource Include="img\task-background.jpg">
+        <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      </Resource>
+    
+      
+  <Resource Include="img\testing-background2.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  
+  <Resource Include="img\topics-background.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+<Resource Include="img\topics-leadership.PNG">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+<Resource Include="img\topics-motivation.PNG">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+<Resource Include="img\topics-productivity.PNG">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+<Resource Include="img\topics-public-speech.PNG">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+<Resource Include="img\topics-self-branding.PNG">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="img\topics-team-work.PNG">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
+  
   </ItemGroup>
 
 </Project>
