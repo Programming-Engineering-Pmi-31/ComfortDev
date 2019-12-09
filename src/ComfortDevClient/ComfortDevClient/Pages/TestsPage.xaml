@@ -8,18 +8,22 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="TestsPage">
 
-    <Grid Background="White">
-        <TextBlock x:Name="textBlock" Margin="98,93,98,307" 
+    <Grid>
+        <Grid.Background>
+            <ImageBrush ImageSource="C:\Users\HP\Desktop\ComfortDev1\src\ComfortDevClient\ComfortDevClient\img\testing-background2.jpg" Stretch="UniformToFill"/>
+        </Grid.Background>
+        
+        <TextBlock x:Name="textBlock" Margin="98,134,98,266" 
                    Text="Let`s answer some questions, it helps the program to choose which topic fits you best. You will find out the result in the window of topics. It will be ranked first in the list." 
-                   TextWrapping="Wrap" FontSize="16" FontFamily="Cambria" TextAlignment="Left"/>
-        <TextBlock x:Name="textBlock1" Margin="266,27,266,362" Text="Your advisor" TextWrapping="Wrap" FontFamily="Cambria" FontSize="48" TextAlignment="Center"/>
+                   TextWrapping="Wrap" FontSize="16" FontFamily="Cambria" TextAlignment="Left" RenderTransformOrigin="0.516,1.655"/>
+        <TextBlock x:Name="textBlock1" Margin="295,50,245,342" Text="Your advisor" TextWrapping="Wrap" FontFamily="Cambria" FontSize="48" TextAlignment="Center"/>
 
         <StackPanel Margin="190,396,400,29" Orientation="Horizontal"/>
 
         <TextBlock x:Name="question" HorizontalAlignment="Center" Margin="0,212,0,0" 
                    TextWrapping="Wrap" VerticalAlignment="Top" Width="604" Height="53"/>
-        <Button x:Name="SkipButton" Content="Skip" Margin="617,153,78,272" BorderBrush="Transparent"
-                BorderThickness="0" Background="#FFC9FBA6" FontFamily="Cambria" FontSize="18" Click="SkipButton_Click">
+        <Button x:Name="SkipButton" Content="Skip" Margin="620,212,76,212" BorderBrush="Transparent"
+                BorderThickness="0" Background="#FFC9FBA6" FontFamily="Cambria" FontSize="18" Click="SkipButton_Click" RenderTransformOrigin="0.537,2.155">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>
