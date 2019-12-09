@@ -32,6 +32,9 @@ namespace ComfortDevClient.Pages
         {
             InitializeComponent();            
             GetTest();
+            question.FontFamily = new FontFamily("Cambria");
+            question.FontSize = 16;
+
         }
 
         private async void GetTest()
@@ -82,7 +85,7 @@ namespace ComfortDevClient.Pages
                 {
                     groupAnswers.Add(
                         new KeyValuePair<RadioButton, Answer>(
-                            new RadioButton { Content = answer.AnswerText }, answer));
+                            new RadioButton { Content = answer.AnswerText, FontFamily = new FontFamily("Cambria"), FontSize=16 }, answer));
                 }
                 answers.Add(groupAnswers);
             }
