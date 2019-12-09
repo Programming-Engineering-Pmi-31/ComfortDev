@@ -9,6 +9,7 @@
   <ItemGroup>
     <None Remove="img\BackGround1.jpg" />
     <None Remove="img\Register-Window-Background-3.jpg" />
+  
   </ItemGroup>
 
   <ItemGroup>
