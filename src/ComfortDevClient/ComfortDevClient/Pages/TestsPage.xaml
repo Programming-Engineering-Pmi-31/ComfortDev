@@ -19,7 +19,7 @@
         <TextBlock x:Name="question" HorizontalAlignment="Center" Margin="0,212,0,0" 
                    TextWrapping="Wrap" VerticalAlignment="Top" Width="604" Height="53"/>
         <Button x:Name="SkipButton" Content="Skip" Margin="617,153,78,272" BorderBrush="Transparent"
-                BorderThickness="0" Background="#FF96FF4D" FontFamily="Cambria" FontSize="18" Click="SkipButton_Click">
+                BorderThickness="0" Background="#FFC9FBA6" FontFamily="Cambria" FontSize="18" Click="SkipButton_Click">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>
@@ -33,7 +33,7 @@
             </Button.Effect>
         </Button>
         <Button x:Name="Previous_button" Content="Previous" BorderBrush="Transparent"
-                BorderThickness="0" Background="#FF96FF4D" FontFamily="Cambria" FontSize="18" Click="Previous_button_Click" Margin="98,390,602,34">
+                BorderThickness="0" Background="#FFC9FBA6" FontFamily="Cambria" FontSize="18" Click="Previous_button_Click" Margin="98,390,602,34">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>

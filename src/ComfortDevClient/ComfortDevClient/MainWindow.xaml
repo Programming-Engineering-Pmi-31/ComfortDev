@@ -22,7 +22,7 @@
                 Margin="170,522,170,0"
                 BorderBrush="Transparent"
                 BorderThickness="0"
-                Background="#FF96FF4D" Height="25" VerticalAlignment="Top" Click="Btn1_Click" FontFamily="Cambria" FontSize="18">
+                Background="#FFC9FBA6" Height="25" VerticalAlignment="Top" Click="Btn1_Click" FontFamily="Cambria" FontSize="18">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>

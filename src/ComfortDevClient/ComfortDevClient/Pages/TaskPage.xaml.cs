@@ -27,5 +27,20 @@ namespace ComfortDevClient.Pages
         {
 
         }
+
+        private void starsButton_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void stars2Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void stars3Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

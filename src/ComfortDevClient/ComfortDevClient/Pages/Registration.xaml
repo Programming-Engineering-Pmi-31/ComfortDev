@@ -12,7 +12,7 @@
         <Button 
             BorderBrush="Transparent"
             BorderThickness="0" FontFamily="Cambria" FontSize="18"
-            Content="Sign Up" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" Height="32" Width="144" Background="#FFBCD600" Click="Button_Click">
+            Content="Sign Up" HorizontalAlignment="Center" Margin="0,291,0,0" VerticalAlignment="Top" Height="32" Width="144" Background="#FF96FF4D" Click="Button_Click">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>

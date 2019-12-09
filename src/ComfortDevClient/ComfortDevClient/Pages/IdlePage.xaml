@@ -11,34 +11,66 @@
     <Grid Background="White">
 
         <StackPanel Margin="144,80,144,225" Orientation="Horizontal">
-            <Button x:Name="task1" Height="96" Width="150" Margin="10,10,10,10">
-                <ProgressBar Height="13" Width="130" Minimum="0" Maximum="100" Value="65" Margin="0,50,0,0"></ProgressBar>
+            <Button x:Name="task1" Height="96" Width="130" Margin="20,10,20,10"
+                    BorderBrush="Transparent" BorderThickness="0" >
+
+                <ProgressBar Height="5" Width="110" Minimum="0" Maximum="100" Value="35" Margin="0,70,0,0" Background="#FFE6E6E6" Foreground="#FF96FF4D" IsEnabled="False" RenderTransformOrigin="0.5,0.5">
+                    <ProgressBar.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform/>
+                            <SkewTransform/>
+                            <RotateTransform Angle="0"/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </ProgressBar.RenderTransform>
+                    <ProgressBar.Style>
+                        <Style TargetType="ProgressBar">
+                            <Setter Property="Border.CornerRadius" Value="15"/>
+                        </Style>
+                    </ProgressBar.Style>
+                </ProgressBar>
+                <Button.Effect>
+                    <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
+                </Button.Effect>
             </Button>
-            <Button x:Name="task2" Height="96" Width="150" Margin="10,10,10,10" Click="NotPayedBlock">
-                <ProgressBar Height="13" Width="130" Minimum="0" Maximum="100" Value="0" Margin="0,50,0,0"></ProgressBar>
+
+            <Button x:Name="task2" Height="96" Width="130" Margin="20,10,20,10" Click="NotPayedBlock"
+                    BorderBrush="Transparent" BorderThickness="0" >
+                <Button.Effect>
+                    <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
+                </Button.Effect>
             </Button>
-            <Button x:Name="task3" Height="96" Width="150" Margin="10,10,10,10" Click="NotPayedBlock">
-                <ProgressBar Height="13" Width="130" Minimum="0" Maximum="100" Value="0" Margin="0,50,0,0"></ProgressBar>
+            <Button x:Name="task3" Height="96" Width="130" Margin="20,10,20,10" Click="NotPayedBlock"
+                    BorderBrush="Transparent" BorderThickness="0" >
+                <Button.Effect>
+                    <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
+                </Button.Effect>
             </Button>
         </StackPanel>
 
 
         <StackPanel Margin="144,225,144,80" Orientation="Horizontal">
-            <Button x:Name="task4" Height="96" Width="150" Margin="10,10,10,10" Click="NotPayedBlock"
-                    HorizontalAlignment="Left" VerticalAlignment="Center">
-                <ProgressBar Height="13" Width="130" Minimum="0" Maximum="100" Value="0" Margin="0,50,0,0"></ProgressBar>
+            <Button x:Name="task4" Height="96" Width="130" Margin="20,10,20,10" Click="NotPayedBlock"
+                    BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Button.Effect>
+                    <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
+                </Button.Effect>
             </Button>
-            <Button x:Name="task5" Height="96" Width="150" Margin="10,10,10,10" Click="NotPayedBlock"
-                    HorizontalAlignment="Center" VerticalAlignment="Center">
-                <ProgressBar Height="13" Width="130" Minimum="0" Maximum="100" Value="0" Margin="0,50,0,0"></ProgressBar>
+            <Button x:Name="task5" Height="96" Width="130" Margin="20,10,20,10" Click="NotPayedBlock"
+                    BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                <Button.Effect>
+                    <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
+                </Button.Effect>
             </Button>
-            <Button x:Name="task6" Height="96" Width="150" Margin="10,10,10,10" Click="NotPayedBlock"
-                    HorizontalAlignment="Right" VerticalAlignment="Center">
-                <ProgressBar Height="13" Width="130" Minimum="0" Maximum="100" Value="0" Margin="0,50,0,0"></ProgressBar>
+            <Button x:Name="task6" Height="96" Width="130" Margin="20,10,20,10" Click="NotPayedBlock"
+                    BorderBrush="Transparent" BorderThickness="0" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Button.Effect>
+                    <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
+                </Button.Effect>
             </Button>
         </StackPanel>
-        <Button x:Name="toTestAgain" Content="To test again" HorizontalAlignment="Left" Margin="10,410,0,0" VerticalAlignment="Top" Height="30" Width="124" FontFamily="Cambria"
-                BorderBrush="Transparent" BorderThickness="0" Background="#FF96FF4D" FontSize="18" Click="toTestAgain_Click">
+        <Button x:Name="toTestAgain" Content="To test again" HorizontalAlignment="Left" Margin="98,390,0,0" VerticalAlignment="Top" Height="30" Width="124" FontFamily="Cambria"
+                BorderBrush="Transparent" BorderThickness="0" Background="#FFC9FBA6" FontSize="18" Click="toTestAgain_Click">
             <Button.Effect>
                 <DropShadowEffect Color="#FFBBBBBB" Direction="0" BlurRadius="15" RenderingBias="Quality" ShadowDepth="1"/>
             </Button.Effect>
