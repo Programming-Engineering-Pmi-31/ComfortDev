@@ -8,7 +8,8 @@
       d:DesignHeight="453" d:DesignWidth="284"
       Title="Login">
 
-    <Grid>
+    <Grid Background="White">
+       
         <PasswordBox x:Name="passwordBox" Margin="0,191,0,0" HorizontalAlignment="Center" Width="264" Height="18" VerticalAlignment="Top" BorderBrush="Transparent" BorderThickness="0"/>
         <Label Content="Password" Margin="10,166,0,0" FontSize="16" HorizontalAlignment="Left" Width="99" Height="31" VerticalAlignment="Top" FontFamily="Cambria"/>
         <TextBox x:Name="loginBox" Margin="0,132,0,0" TextWrapping="Wrap" Height="18" VerticalAlignment="Top" HorizontalAlignment="Center" Width="264" BorderBrush="Transparent" BorderThickness="0"/>

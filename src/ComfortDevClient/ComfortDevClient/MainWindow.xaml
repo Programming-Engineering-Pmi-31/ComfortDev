@@ -9,7 +9,7 @@
     <Grid>
         <Canvas Margin="0,0,0,200">
             <Canvas.Background>
-                <ImageBrush ImageSource="/img/Register-Window-Background-3.jpg"/>
+                <ImageBrush ImageSource="C:\Users\HP\Desktop\ComfortDev\src\ComfortDevClient\ComfortDevClient\img\register-background.jpg"/>
             </Canvas.Background>
         </Canvas>
 
