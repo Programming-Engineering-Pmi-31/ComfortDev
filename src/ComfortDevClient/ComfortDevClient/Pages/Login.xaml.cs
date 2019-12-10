@@ -30,7 +30,6 @@ namespace ComfortDevClient.Pages
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
             IdleWindow wind = new IdleWindow();
-            wind.Show();                             /// DELETE THIS
 
             if (loginBox.Text.Length < 4 || passwordBox.Password.Length <= 8)
             {
